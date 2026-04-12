@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tôm Chua 36 – Hải Hoà</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root{--red:#c84b1a;--orange:#e8631c;--amber:#f5a623;--gold:#ffd18a;--dark:#2c1206;--glass:rgba(255,255,255,0.18);--glass2:rgba(255,255,255,0.24);--border:rgba(255,255,255,0.32);--nav-h:62px;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 20%,#ff6b2b 0%,transparent 50%),radial-gradient(ellipse at 85% 80%,#c0390a 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,#e84e0f 0%,transparent 80%),#991c00;min-height:100vh;color:#fff;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,180,80,.10) 1px,transparent 1px),radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px,72px 72px;pointer-events:none;z-index:0;}
+button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}img{display:block;}
+
+/* TOP NAV */
+.topnav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;height:var(–nav-h);background:rgba(140,25,0,0.78);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-bottom:1px solid rgba(255,255,255,0.18);box-shadow:0 4px 24px rgba(0,0,0,0.28);}
+.nav-logo{display:flex;align-items:center;gap:.7rem;cursor:pointer;}
+.nav-logo img{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,200,120,.7);object-fit:cover;}
+.nav-logo-text{font-family:‘Cormorant Garamond’,serif;font-size:1.25rem;font-weight:700;color:#fff;line-height:1.1;}
+.nav-logo-text span{color:var(–gold);font-style:italic;}
+.ham-btn{width:40px;height:40px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:background .2s;flex-shrink:0;}
+.ham-btn:hover{background:rgba(255,255,255,0.22);}
+.ham-btn span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:transform .3s, opacity .3s;}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ham-btn.open span:nth-child(2){opacity:0;}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* SIDEBAR */
+.sidebar-overlay{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0);pointer-events:none;transition:background .3s;}
+.sidebar-overlay.open{background:rgba(0,0,0,0.52);pointer-events:all;}
+.sidebar{position:fixed;top:0;right:0;z-index:301;width:280px;max-width:88vw;height:100%;background:linear-gradient(160deg,rgba(160,35,5,0.97),rgba(100,15,0,0.98));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(255,200,100,.22);box-shadow:-8px 0 40px rgba(0,0,0,0.45);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);padding-bottom:2rem;}
+.sidebar.open{transform:translateX(0);}
+.sidebar-head{padding:1.3rem 1.4rem 1rem;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:space-between;}
+.sidebar-logo{font-family:‘Cormorant Garamond’,serif;font-size:1.2rem;font-weight:700;color:#fff;}
+.sidebar-logo span{color:var(–gold);font-style:italic;}
+.sidebar-close{width:34px;height:34px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,.85);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.sidebar-close:hover{background:rgba(255,255,255,.22);}
+.sidebar-nav{flex:1;padding:0.8rem 0;}
+.sidebar-item{display:flex;align-items:center;gap:.9rem;padding:.85rem 1.4rem;color:rgba(255,255,255,.85);font-size:.92rem;font-weight:500;cursor:pointer;transition:background .15s, color .15s;position:relative;}
+.sidebar-item:hover{background:rgba(255,255,255,.1);color:#fff;}
+.sidebar-item.active{background:rgba(255,200,100,.14);color:var(–gold);font-weight:600;}
+.sidebar-item.active::before{content:’’;position:absolute;left:0;top:0;bottom:0;width:3px;background:var(–gold);border-radius:0 2px 2px 0;}
+.sidebar-item .si-icon{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;}
+.sidebar-item.active .si-icon{background:rgba(255,210,100,.18);}
+.sidebar-footer{padding:1rem 1.4rem 0;border-top:1px solid rgba(255,255,255,.1);font-size:.76rem;color:rgba(255,255,255,.45);text-align:center;}
+
+/* BOTTOM TABS */
+.bottom-tabs{position:fixed;bottom:0;left:0;right:0;z-index:150;display:flex;background:rgba(120,22,0,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.15);padding-bottom:env(safe-area-inset-bottom,0);}
+.btab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.55rem .2rem .5rem;cursor:pointer;color:rgba(255,255,255,.55);font-size:.6rem;font-weight:500;transition:color .2s;gap:3px;border:none;background:transparent;}
+.btab i{font-size:1.1rem;}
+.btab.active{color:var(–gold);}
+.btab.active i{text-shadow:0 0 10px rgba(255,200,80,.5);}
+
+/* APP */
+.app{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 1.1rem;padding-bottom:calc(72px + env(safe-area-inset-bottom,0));}
+.page-view{display:none;}
+.page-view.active{display:block;animation:fadeUp .35s ease both;}
+
+/* COMMON */
+.section-label{font-family:‘Cormorant Garamond’,serif;font-size:1.45rem;font-weight:700;font-style:italic;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.3);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem;}
+.section-label::after{content:’’;flex:1;height:1px;background:linear-gradient(90deg,rgba(255,200,100,.5),transparent);}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:40px;padding:.2rem .75rem;font-size:.74rem;color:#ffe;white-space:nowrap;}
+.glass-card{background:var(–glass2);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid var(–border);border-radius:20px;box-shadow:0 8px 28px rgba(0,0,0,.18);}
+.mt-1{margin-top:1rem;}.mb-1{margin-bottom:1rem;}.mb-14{margin-bottom:1.4rem;}.pt-12{padding-top:1.2rem;}
+
+/* CTA BUTTON */
+.btn-cta{width:100%;padding:.95rem 1.4rem;background:linear-gradient(135deg,#e8631c,#c84b1a);border:none;border-radius:13px;color:#fff;font-size:.96rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6rem;box-shadow:0 6px 22px rgba(200,75,26,.5);transition:all .25s;letter-spacing:.02em;}
+.btn-cta:hover:not(:disabled){background:linear-gradient(135deg,#ff7733,#e0551a);transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,75,26,.6);}
+.btn-cta:disabled{opacity:.6;cursor:not-allowed;}
+
+/* ── TRANG CHỦ ── */
+.banner{border-radius:24px;overflow:hidden;position:relative;margin:1.2rem 0 1.4rem;box-shadow:0 16px 48px rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.22);}
+.banner img{width:100%;max-height:380px;object-fit:cover;filter:brightness(.82) saturate(1.2);}
+.banner-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(180,40,0,.55) 0%,transparent 60%,rgba(0,0,0,.3) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem 2rem;}
+.banner-ov .slogan{font-family:‘Cormorant Garamond’,serif;font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;font-style:italic;line-height:1.15;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.5);margin-bottom:.45rem;}
+.banner-ov .slogan span{color:var(–gold);}
+.banner-ov .sub{font-size:.88rem;color:rgba(255,255,255,.88);display:flex;flex-wrap:wrap;gap:.4rem;}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:1.4rem;}
+.quick-card{padding:1.2rem 1rem;background:var(–glass2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(–border);border-radius:18px;box-shadow:0 6px 20px rgba(0,0,0,.16);display:flex;flex-direction:column;align-items:center;gap:.6rem;cursor:pointer;transition:transform .2s,background .2s;text-align:center;}
+.quick-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.3);}
+.quick-card .qc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(255,200,100,.18);border:1px solid rgba(255,200,100,.3);}
+.quick-card .qc-title{font-weight:700;font-size:.9rem;color:#fff;}
+.quick-card .qc-sub{font-size:.74rem;color:rgba(255,255,255,.65);}
+.feature-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.4rem;}
+.feat{padding:1rem .8rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:16px;text-align:center;}
+.feat .fi{font-size:1.5rem;margin-bottom:.35rem;}
+.feat .ft{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.9);line-height:1.4;}
+.home-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.4rem;}
+.hg-card{border-radius:14px;overflow:hidden;aspect-ratio:1;box-shadow:0 4px 16px rgba(0,0,0,.25);}
+.hg-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.hg-card:hover img{transform:scale(1.07);}
+
+/* ── MUA HÀNG ── */
+.product-card{display:grid;grid-template-columns:1fr 1fr;border-radius:22px;overflow:hidden;border:1px solid var(–border);box-shadow:0 10px 36px rgba(0,0,0,.28);margin-bottom:1.4rem;}
+@media(max-width:580px){.product-card{grid-template-columns:1fr;}}
+.prod-img{position:relative;aspect-ratio:4/3;overflow:hidden;}
+@media(max-width:580px){.prod-img{aspect-ratio:16/9;}}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.product-card:hover .prod-img img{transform:scale(1.06);}
+.badge-hot{position:absolute;top:.9rem;left:.9rem;background:linear-gradient(135deg,#ff5722,#e8631c);color:#fff;font-size:.7rem;font-weight:700;padding:.28rem .8rem;border-radius:40px;box-shadow:0 4px 12px rgba(200,75,26,.5);text-transform:uppercase;letter-spacing:.04em;}
+.prod-info{padding:1.6rem 1.6rem 1.8rem;background:rgba(255,255,255,.20);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;flex-direction:column;justify-content:center;gap:.85rem;}
+.prod-brand{font-size:.73rem;font-weight:600;color:var(–gold);letter-spacing:.08em;text-transform:uppercase;}
+.prod-name{font-family:‘Cormorant Garamond’,serif;font-size:1.75rem;font-weight:700;line-height:1.15;color:#fff;}
+.prod-name em{color:var(–gold);font-style:italic;}
+.prod-desc{font-size:.86rem;line-height:1.65;color:rgba(255,255,255,.88);}
+.prod-tags{display:flex;flex-wrap:wrap;gap:.45rem;}
+.ptag{background:rgba(255,255,255,.13);border:1px solid rgba(255,220,150,.32);border-radius:40px;padding:.2rem .75rem;font-size:.75rem;font-weight:600;color:#ffe8c8;}
+.price-row{display:flex;align-items:center;gap:.9rem;}
+.price{font-family:‘Cormorant Garamond’,serif;font-size:2rem;font-weight:700;color:#ffe566;text-shadow:0 2px 12px rgba(255,180,0,.35);}
+.price-note{font-size:.76rem;color:rgba(255,255,255,.6);line-height:1.4;}
+.qty-row{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;}
+.qty-lbl{font-size:.84rem;font-weight:500;color:rgba(255,255,255,.85);}
+.qty-ctrl{display:flex;align-items:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:40px;overflow:hidden;}
+.qty-btn{width:34px;height:34px;background:transparent;border:none;color:#fff;font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.qty-btn:hover{background:rgba(255,255,255,.2);}
+#qtyInput{width:42px;text-align:center;background:transparent;border:none;color:#fff;font-size:.95rem;font-weight:600;outline:none;}
+#qtyInput::-webkit-inner-spin-button{-webkit-appearance:none;}
+.total-prev{text-align:center;font-size:.82rem;color:rgba(255,255,255,.68);}
+.total-prev strong{color:#ffe566;}
+.order-form-wrap{padding:1.8rem;background:rgba(255,255,255,.20);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(–border);border-radius:22px;box-shadow:0 10px 36px rgba(0,0,0,.22);margin-bottom:1.4rem;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:.4rem;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:.35rem;}
+.req{color:#ff9a6c;}
+.form-group input,.form-group textarea{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:.72rem 1rem;color:#fff;font-family:‘DM Sans’,sans-serif;font-size:.88rem;outline:none;transition:border-color .2s,background .2s;width:100%;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.4);}
+.form-group input:focus,.form-group textarea:focus{border-color:rgba(255,200,100,.6);background:rgba(255,255,255,.2);}
+.form-group input.error{border-color:#ff6b6b!important;}
+.form-group textarea{resize:vertical;min-height:76px;}
+.addr-wrap{position:relative;}
+.addr-wrap input{padding-right:3rem;}
+.btn-geo{position:absolute;right:.65rem;top:50%;transform:translateY(-50%);background:rgba(255,200,100,.18);border:1px solid rgba(255,200,100,.38);border-radius:8px;color:var(–gold);padding:.28rem .5rem;cursor:pointer;font-size:.85rem;transition:all .2s;}
+.btn-geo:hover{background:rgba(255,200,100,.32);}
+.geo-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.22rem;}
+.order-summary{background:rgba(255,255,255,.12);border:1px solid rgba(255,210,130,.28);border-radius:13px;padding:.9rem 1.1rem;margin:.9rem 0 1.1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;}
+.sum-item{font-size:.84rem;color:rgba(255,255,255,.8);}
+.sum-total{font-family:‘Cormorant Garamond’,serif;font-size:1.35rem;font-weight:700;color:#ffe566;}
+
+/* ── ĐƠN HÀNG ── */
+.orders-empty{text-align:center;padding:3rem 1rem;color:rgba(255,255,255,.6);}
+.orders-empty .oe-icon{font-size:3.5rem;margin-bottom:.8rem;opacity:.5;}
+.orders-empty p{font-size:.9rem;line-height:1.6;}
+.order-item{padding:1.2rem 1.4rem;background:rgba(255,255,255,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.28);border-radius:18px;margin-bottom:.8rem;}
+.order-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.7rem;}
+.order-id{font-size:.7rem;color:rgba(255,255,255,.52);margin-top:.15rem;}
+.order-name{font-weight:700;font-size:.9rem;color:#fff;}
+.order-status{font-size:.7rem;font-weight:700;padding:.2rem .7rem;border-radius:40px;background:rgba(255,200,80,.2);color:#ffe566;border:1px solid rgba(255,200,80,.3);white-space:nowrap;}
+.order-status.cancelled{background:rgba(255,100,80,.2);color:#ffb0a0;border-color:rgba(255,100,80,.3);}
+.order-row{display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:.3rem;}
+.order-row .lbl{color:rgba(255,255,255,.6);}
+.order-row .val{color:#fff;font-weight:500;}
+.order-row .val.gold{color:#ffe566;}
+.order-actions{margin-top:.9rem;display:flex;gap:.6rem;flex-wrap:wrap;}
+.btn-cancel-order{padding:.5rem 1.1rem;font-size:.8rem;font-weight:600;background:rgba(255,80,60,.18);border:1px solid rgba(255,80,60,.35);border-radius:10px;color:#ffb0a0;cursor:pointer;transition:all .2s;}
+.btn-cancel-order:hover{background:rgba(255,80,60,.32);color:#fff;}
+.btn-reorder{padding:.5rem 1.1rem;font-size:.8rem;font-weight:600;background:rgba(255,200,80,.15);border:1px solid rgba(255,200,80,.3);border-radius:10px;color:var(–gold);cursor:pointer;transition:all .2s;}
+.btn-reorder:hover{background:rgba(255,200,80,.28);color:#fff;}
+
+/* ── HƯỚNG DẪN LÀM ── */
+.recipe-hero{border-radius:20px;overflow:hidden;position:relative;margin-bottom:1.2rem;box-shadow:0 12px 36px rgba(0,0,0,.35);}
+.recipe-hero img{width:100%;max-height:260px;object-fit:cover;filter:brightness(.82);}
+.recipe-hero-ov{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.68));display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem 1.6rem;}
+.recipe-hero-ov .rtitle{font-family:‘Cormorant Garamond’,serif;font-size:1.75rem;font-weight:700;font-style:italic;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+.recipe-hero-ov .rsub{font-size:.8rem;color:rgba(255,255,255,.78);margin-top:.25rem;}
+.ing-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1rem;}
+.chip{background:rgba(255,255,255,.17);border:1px solid rgba(255,220,160,.35);border-radius:40px;padding:.28rem .9rem;font-size:.8rem;font-weight:500;color:#fff3e0;display:inline-flex;align-items:center;gap:.38rem;}
+.ing-photo-row{display:flex;flex-wrap:wrap;gap:.6rem;}
+.ing-photo{width:70px;height:70px;object-fit:cover;border-radius:11px;border:2px solid rgba(255,200,100,.45);transition:transform .2s,border-color .2s;cursor:pointer;}
+.ing-photo:hover{transform:scale(1.09);border-color:#ffb347;}
+.steps-list{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem;}
+.step-card{display:flex;gap:.9rem;align-items:flex-start;padding:.95rem 1.1rem;background:rgba(255,255,255,.17);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.26);border-radius:14px;}
+.step-num{flex-shrink:0;width:36px;height:36px;background:rgba(255,200,100,.22);border:2px solid rgba(255,210,130,.55);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:‘Cormorant Garamond’,serif;font-size:1.15rem;font-weight:700;color:#ffe4a0;}
+.step-body strong{display:block;font-size:.88rem;font-weight:600;color:#ffdd99;margin-bottom:.2rem;}
+.step-body p{font-size:.83rem;line-height:1.55;color:rgba(255,255,255,.88);}
+.tip-card{padding:1.1rem 1.3rem;background:rgba(255,220,80,.12);border:1px solid rgba(255,220,80,.28);border-radius:16px;margin-bottom:1.2rem;}
+.tip-card .tip-title{font-size:.88rem;font-weight:700;color:#ffe566;margin-bottom:.5rem;}
+.tip-card ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+.tip-card li{font-size:.82rem;color:rgba(255,255,255,.88);padding-left:1.1rem;position:relative;}
+.tip-card li::before{content:‘✦’;position:absolute;left:0;color:var(–gold);font-size:.65rem;top:.08rem;}
+.final-card{border-radius:20px;overflow:hidden;position:relative;box-shadow:0 12px 36px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.22);margin-bottom:1.2rem;}
+.final-card img{width:100%;max-height:280px;object-fit:cover;}
+.final-ov{position:absolute;bottom:0;left:0;right:0;padding:1.1rem 1.4rem;background:linear-gradient(transparent,rgba(0,0,0,.7));}
+.final-ov strong{font-family:‘Cormorant Garamond’,serif;font-size:1.3rem;font-style:italic;color:#fff;}
+.final-ov p{font-size:.78rem;color:rgba(255,255,255,.78);margin-top:.15rem;}
+.rec-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:1.2rem;}
+.rec-gallery .big{grid-column:span 2;}
+.rec-photo{border-radius:13px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 4px 14px rgba(0,0,0,.26);}
+.rec-photo.big{aspect-ratio:16/9;}
+.rec-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.rec-photo:hover img{transform:scale(1.06);}
+
+/* ── LIÊN HỆ ── */
+.contact-hero{text-align:center;padding:1.8rem 1rem 1.2rem;margin-bottom:1rem;}
+.contact-avatar{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,200,120,.7);object-fit:cover;margin:0 auto .9rem;box-shadow:0 6px 22px rgba(0,0,0,.35);}
+.contact-name{font-family:‘Cormorant Garamond’,serif;font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:.2rem;}
+.contact-name span{color:var(–gold);font-style:italic;}
+.contact-role{font-size:.82rem;color:rgba(255,255,255,.65);}
+.contact-cards{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.2rem;}
+.ccard{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:rgba(255,255,255,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.28);border-radius:18px;cursor:pointer;transition:background .2s,transform .2s;}
+.ccard:hover{background:rgba(255,255,255,.28);transform:translateY(-2px);}
+.ccard .cc-icon{width:48px;height:48px;flex-shrink:0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;}
+.ccard.zalo .cc-icon{background:rgba(0,130,240,.25);border:1px solid rgba(0,130,240,.35);}
+.ccard.phone .cc-icon{background:rgba(80,200,120,.2);border:1px solid rgba(80,200,120,.3);}
+.ccard .ct-label{font-size:.74rem;color:rgba(255,255,255,.58);margin-bottom:.1rem;}
+.ccard .ct-val{font-size:.96rem;font-weight:600;color:#fff;}
+.ccard .cc-arrow{margin-left:auto;color:rgba(255,255,255,.4);font-size:.85rem;}
+.info-box{padding:1.2rem 1.4rem;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:18px;margin-bottom:1rem;}
+.info-box .ib-title{font-size:.82rem;font-weight:700;color:var(–gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.7rem;}
+.ib-row{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:rgba(255,255,255,.82);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.ib-row:last-child{border-bottom:none;}
+.ib-row i{color:var(–gold);width:18px;text-align:center;}
+
+/* ZALO MODAL */
+.zalo-modal{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+.zalo-modal.open{opacity:1;pointer-events:all;}
+.zalo-box{background:linear-gradient(145deg,rgba(0,80,180,.95),rgba(0,50,130,.98));border:1px solid rgba(100,180,255,.3);border-radius:24px;padding:2rem 1.8rem;max-width:360px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.55);transform:translateY(20px);transition:transform .3s;}
+.zalo-modal.open .zalo-box{transform:translateY(0);}
+.zalo-logo{font-size:3.5rem;margin-bottom:.5rem;}
+.zalo-title{font-family:‘Cormorant Garamond’,serif;font-size:1.55rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.zalo-admin{font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:1.3rem;}
+.zalo-link{display:block;width:100%;padding:1rem;background:linear-gradient(135deg,#0068FF,#0084ff);border:none;border-radius:14px;color:#fff;font-size:.96rem;font-weight:700;box-shadow:0 6px 22px rgba(0,100,255,.4);transition:all .2s;margin-bottom:.7rem;cursor:pointer;}
+.zalo-link:hover{background:linear-gradient(135deg,#0055dd,#0070e0);transform:translateY(-1px);}
+.zalo-close{width:100%;padding:.75rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;color:rgba(255,255,255,.78);font-size:.88rem;font-weight:500;cursor:pointer;transition:all .2s;}
+.zalo-close:hover{background:rgba(255,255,255,.18);}
+
+/* QR MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.show{opacity:1;pointer-events:all;}
+.modal-box{background:linear-gradient(145deg,rgba(180,50,10,.96),rgba(120,25,0,.98));border:1px solid rgba(255,200,100,.32);border-radius:24px;padding:1.8rem;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.55);text-align:center;transform:translateY(20px);transition:transform .3s;}
+.modal-overlay.show .modal-box{transform:translateY(0);}
+.modal-title{font-family:‘Cormorant Garamond’,serif;font-size:1.45rem;font-weight:700;color:var(–gold);margin-bottom:.25rem;}
+.modal-sub{font-size:.8rem;color:rgba(255,255,255,.68);margin-bottom:1rem;}
+.qr-frame{background:#fff;border-radius:14px;padding:.7rem;display:inline-block;box-shadow:0 8px 28px rgba(0,0,0,.35);margin-bottom:1rem;}
+.qr-frame img{width:190px;height:190px;border-radius:6px;}
+.qr-info{text-align:left;margin-bottom:1rem;}
+.qr-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.83rem;}
+.qr-row:last-child{border-bottom:none;}
+.qr-row .lbl{color:rgba(255,255,255,.6);}
+.qr-row .val{color:#fff;font-weight:600;text-align:right;}
+.qr-row .val.gold{color:#ffe566;font-size:1rem;}
+.modal-note{background:rgba(255,255,255,.08);border:1px solid rgba(255,200,100,.18);border-radius:10px;padding:.65rem .9rem;font-size:.77rem;color:rgba(255,255,255,.74);line-height:1.55;margin-bottom:1rem;}
+.modal-note strong{color:var(–gold);}
+.btn-confirm{width:100%;padding:.95rem;margin-bottom:.6rem;background:linear-gradient(135deg,#e8631c,#c84b1a);border:none;border-radius:12px;color:#fff;font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 6px 18px rgba(200,75,26,.45);transition:all .2s;}
+.btn-confirm:hover:not(:disabled){background:linear-gradient(135deg,#ff7733,#e0551a);transform:translateY(-1px);}
+.btn-confirm:disabled{opacity:.6;cursor:not-allowed;}
+.btn-modal-close{width:100%;padding:.7rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:rgba(255,255,255,.78);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;}
+.btn-modal-close:hover{background:rgba(255,255,255,.18);}
+
+/* CANCEL MODAL */
+.cancel-modal{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+.cancel-modal.open{opacity:1;pointer-events:all;}
+.cancel-box{background:linear-gradient(145deg,rgba(140,20,10,.96),rgba(80,10,5,.98));border:1px solid rgba(255,120,100,.25);border-radius:20px;padding:1.8rem;max-width:340px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.55);transform:translateY(20px);transition:transform .3s;}
+.cancel-modal.open .cancel-box{transform:translateY(0);}
+.cancel-icon{font-size:2.8rem;margin-bottom:.5rem;}
+.cancel-title{font-family:‘Cormorant Garamond’,serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.35rem;}
+.cancel-msg{font-size:.84rem;color:rgba(255,255,255,.7);line-height:1.5;margin-bottom:1.2rem;}
+.cancel-btns{display:flex;gap:.7rem;}
+.btn-do-cancel{flex:1;padding:.8rem;background:rgba(255,80,60,.25);border:1px solid rgba(255,80,60,.45);border-radius:11px;color:#ffb0a0;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.btn-do-cancel:hover{background:rgba(255,80,60,.45);color:#fff;}
+.btn-keep{flex:1;padding:.8rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:11px;color:rgba(255,255,255,.85);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;}
+.btn-keep:hover{background:rgba(255,255,255,.22);}
+
+/* TOAST */
+.toast{position:fixed;bottom:85px;left:50%;transform:translateX(-50%) translateY(60px);z-index:9999;background:rgba(25,8,0,.92);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:.8rem 1.5rem;display:flex;align-items:center;gap:.55rem;font-size:.88rem;font-weight:500;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.4);transition:transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s;opacity:0;pointer-events:none;white-space:nowrap;max-width:92vw;}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all;}
+
+/* SPINNER */
+.spinner{width:17px;height:17px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+</style>
+
+</head>
+<body>
+
+<!-- TOP NAV -->
+
+<nav class="topnav">
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="https://i.postimg.cc/8cP81pYc/8052B4E0-99AF-4D0E-90AD-B3530B915C74.png" alt="Logo"
+         onerror="this.src='https://placehold.co/80x80/c54512/white?text=HH'">
+    <div class="nav-logo-text">Hải Hoà <span>Tôm Chua 36</span></div>
+  </div>
+  <button class="ham-btn" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <div class="sidebar-logo">Hải Hoà <span>Tôm Chua 36</span></div>
+    <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-item active" data-page="home" onclick="showPage('home')"><div class="si-icon">🏠</div>Trang Chủ</div>
+    <div class="sidebar-item" data-page="shop" onclick="showPage('shop')"><div class="si-icon">🛒</div>Mua Hàng</div>
+    <div class="sidebar-item" data-page="orders" onclick="showPage('orders')"><div class="si-icon">📦</div>Đơn Hàng</div>
+    <div class="sidebar-item" data-page="recipe" onclick="showPage('recipe')"><div class="si-icon">👨‍🍳</div>Hướng Dẫn Làm</div>
+    <div class="sidebar-item" data-page="contact" onclick="showPage('contact')"><div class="si-icon">💬</div>Liên Hệ</div>
+  </nav>
+  <div class="sidebar-footer">© 2025 Hải Hoà · Tôm Chua 36<br>Đặc sản Huế – Lên men truyền thống</div>
+</aside>
+
+<!-- APP -->
+
+<div class="app">
+
+<!-- ═══ TRANG CHỦ ═══ -->
+
+<div class="page-view active" id="page-home">
+  <div class="banner">
+    <img src="https://i.postimg.cc/L6Zj6tFr/IMG-7165.jpg" alt="Tôm Chua 36"
+         onerror="this.src='https://placehold.co/960x380/d45c28/white?text=T%C3%B4m+Chua+36'">
+    <div class="banner-ov">
+      <div class="slogan">Đặc sản Huế <span>Tôm Chua 36</span><br>Chuẩn vị – Đỏ cam tự nhiên</div>
+      <div class="sub">
+        <span class="badge">🦐 Lên men truyền thống</span>
+        <span class="badge">🌶 Riềng · Tỏi · Ớt sừng</span>
+        <span class="badge">✅ Hải Hoà chính gốc</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-th-large" style="font-size:.9rem;opacity:.8"></i>Danh mục</div>
+  <div class="quick-grid">
+    <div class="quick-card" onclick="showPage('shop')"><div class="qc-icon">🛒</div><div class="qc-title">Mua Hàng</div><div class="qc-sub">Đặt hàng nhanh · Toàn quốc</div></div>
+    <div class="quick-card" onclick="showPage('orders')"><div class="qc-icon">📦</div><div class="qc-title">Đơn Hàng</div><div class="qc-sub">Xem & theo dõi đơn đã đặt</div></div>
+    <div class="quick-card" onclick="showPage('recipe')"><div class="qc-icon">👨‍🍳</div><div class="qc-title">Hướng Dẫn Làm</div><div class="qc-sub">Công thức chuẩn Huế</div></div>
+    <div class="quick-card" onclick="showPage('contact')"><div class="qc-icon">💬</div><div class="qc-title">Liên Hệ</div><div class="qc-sub">Zalo · Hỗ trợ 24/7</div></div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-star" style="font-size:.9rem;opacity:.8"></i>Tại sao chọn Hải Hoà</div>
+  <div class="feature-strip">
+    <div class="feat"><div class="fi">🦐</div><div class="ft">Tôm tươi chọn lọc kỹ</div></div>
+    <div class="feat"><div class="fi">🌶</div><div class="ft">Gia vị Huế chuẩn gốc</div></div>
+    <div class="feat"><div class="fi">🚚</div><div class="ft">Giao hàng toàn quốc</div></div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-images" style="font-size:.9rem;opacity:.8"></i>Hình ảnh</div>
+  <div class="home-gallery">
+    <div class="hg-card"><img src="https://i.postimg.cc/RZK1GcsB/IMG-7152.jpg" alt="tc1" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TC'"></div>
+    <div class="hg-card"><img src="https://i.postimg.cc/Njm8b1NJ/IMG-7153.jpg" alt="tc2" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TC'"></div>
+    <div class="hg-card"><img src="https://i.postimg.cc/QMDQzHPn/IMG-7166.jpg" alt="tc3" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TC'"></div>
+  </div>
+
+<button class="btn-cta" onclick="showPage('shop')"><i class="fas fa-cart-shopping"></i>Đặt hàng ngay – 100.000đ/hũ</button>
+
+</div>
+
+<!-- ═══ MUA HÀNG ═══ -->
+
+<div class="page-view" id="page-shop">
+  <div class="pt-12"></div>
+  <div class="section-label"><i class="fas fa-shrimp" style="font-size:.9rem;opacity:.8"></i>Sản phẩm</div>
+  <div class="product-card">
+    <div class="prod-img">
+      <img src="https://i.postimg.cc/RZK1GcsB/IMG-7152.jpg" alt="Tôm Chua 36"
+           onerror="this.src='https://placehold.co/600x450/e65622/white?text=T%C3%B4m+Chua'">
+      <span class="badge-hot">🔥 Bán chạy</span>
+    </div>
+    <div class="prod-info">
+      <div class="prod-brand">Hải Hoà · Đặc sản Huế</div>
+      <div class="prod-name">Tôm Chua <em>Loại Nhỏ</em></div>
+      <div class="prod-desc">Sắc đỏ cam rực rỡ, vị <strong>chua thanh – cay nồng – mặn ngọt đậm đà</strong>. Ăn kèm thịt ba chỉ luộc, rau sống, bánh tráng — chuẩn hương vị Huế chính gốc.</div>
+      <div class="prod-tags"><span class="ptag">🧃 Chua thanh</span><span class="ptag">🌶 Cay nồng</span><span class="ptag">🫙 Hũ thuỷ tinh</span></div>
+      <div class="price-row">
+        <div class="price">100.000đ</div>
+        <div class="price-note">/ hũ ăn thử<br><span style="color:#ff9a6c;font-size:.73rem;">✦ Free ship nội thành</span></div>
+      </div>
+      <div class="qty-row">
+        <span class="qty-lbl">Số lượng:</span>
+        <div class="qty-ctrl">
+          <button class="qty-btn" id="qtyMinus">−</button>
+          <input type="number" id="qtyInput" value="1" min="1" max="99" readonly>
+          <button class="qty-btn" id="qtyPlus">+</button>
+        </div>
+      </div>
+      <div class="total-prev">Tổng: <strong id="totalDisplay">100.000đ</strong></div>
+      <button class="btn-cta" id="btnScrollOrder"><i class="fas fa-cart-shopping"></i>Đặt hàng ngay</button>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-clipboard-list" style="font-size:.9rem;opacity:.8"></i>Thông tin đặt hàng</div>
+  <div class="order-form-wrap" id="orderFormSection">
+    <div class="order-summary">
+      <div><div class="sum-item">🦐 Tôm Chua 36 (loại nhỏ ăn thử)</div><div class="sum-item" style="margin-top:.2rem;">Số lượng: <strong id="formQtyDisplay">1</strong> hũ</div></div>
+      <div><div class="sum-item" style="font-size:.76rem;text-align:right;opacity:.7;margin-bottom:.15rem;">Tổng tiền</div><div class="sum-total" id="formTotalDisplay">100.000đ</div></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-group"><label>👤 Họ và tên <span class="req">*</span></label><input type="text" id="fieldName" placeholder="Nguyễn Văn A"></div>
+      <div class="form-group"><label>📱 Số điện thoại <span class="req">*</span></label><input type="tel" id="fieldPhone" placeholder="0912 345 678"></div>
+      <div class="form-group full">
+        <label>📍 Địa chỉ giao hàng <span class="req">*</span></label>
+        <div class="addr-wrap"><input type="text" id="fieldAddr" placeholder="Số nhà, đường, phường, quận, tỉnh/thành..."><button class="btn-geo" id="btnGeo"><i class="fas fa-location-crosshairs"></i></button></div>
+        <div class="geo-note" id="geoNote">Nhấn 📍 để tự động điền vị trí GPS</div>
+      </div>
+      <div class="form-group full"><label>📝 Ghi chú (tuỳ chọn)</label><textarea id="fieldNote" placeholder="Ví dụ: Giao giờ hành chính, gọi trước 30 phút..."></textarea></div>
+    </div>
+    <button class="btn-cta" id="btnSubmit" style="margin-top:.8rem;"><i class="fas fa-paper-plane"></i>Xác nhận & Thanh toán</button>
+  </div>
+</div>
+
+<!-- ═══ ĐƠN HÀNG ═══ -->
+
+<div class="page-view" id="page-orders">
+  <div class="pt-12"></div>
+  <div class="section-label"><i class="fas fa-box-open" style="font-size:.9rem;opacity:.8"></i>Đơn hàng của bạn</div>
+  <div id="ordersList"></div>
+</div>
+
+<!-- ═══ HƯỚNG DẪN LÀM ═══ -->
+
+<div class="page-view" id="page-recipe">
+  <div class="pt-12"></div>
+  <div class="recipe-hero">
+    <img src="https://i.postimg.cc/L6Zj6tFr/IMG-7165.jpg" alt="Tôm chua" onerror="this.src='https://placehold.co/960x260/d45c28/white?text=H%C6%B0%E1%BB%9Bng+d%E1%BA%ABn'">
+    <div class="recipe-hero-ov"><div class="rtitle">Hướng Dẫn Làm Tôm Chua 36</div><div class="rsub">Công thức chuẩn vị Huế · Hải Hoà chia sẻ</div></div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-basket-shopping" style="font-size:.9rem;opacity:.8"></i>Chuẩn bị nguyên liệu</div>
+  <div class="glass-card" style="padding:1.3rem 1.4rem;margin-bottom:1rem;">
+    <div class="ing-chips">
+      <span class="chip"><i class="fas fa-shrimp"></i>Tôm tươi 500g</span>
+      <span class="chip"><i class="fas fa-bowl-rice"></i>Xôi nếp 1 bát</span>
+      <span class="chip"><i class="fas fa-seedling"></i>Riềng thái chỉ</span>
+      <span class="chip"><i class="fas fa-pepper-hot"></i>Ớt sừng 3–5 trái</span>
+      <span class="chip"><i class="fas fa-circle-nodes"></i>Tỏi 2 củ</span>
+      <span class="chip"><i class="fas fa-wine-bottle"></i>Rượu trắng</span>
+      <span class="chip"><i class="fas fa-droplet"></i>Nước mắm ngon</span>
+      <span class="chip"><i class="fas fa-cube"></i>Đường + Muối</span>
+    </div>
+    <div class="ing-photo-row">
+      <img class="ing-photo" src="https://i.postimg.cc/Y2FSvbhB/IMG-7154.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/XN5vrQpb/IMG-7155.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/SNpxCCzw/IMG-7156.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/gch0xNnG/IMG-7157.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/y6RNDvWv/IMG-7158.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/59ztXnjp/IMG-7159.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/PfDqC2N4/IMG-7161.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/90yXsFvc/IMG-7162.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+      <img class="ing-photo" src="https://i.postimg.cc/nVmLX0M2/IMG-7163.jpg" loading="lazy" onerror="this.src='https://placehold.co/100x100/cd5c2a/white?text=NL'">
+    </div>
+  </div>
+  <div class="rec-gallery mb-14">
+    <div class="rec-photo big"><img src="https://i.postimg.cc/RZK1GcsB/IMG-7152.jpg" onerror="this.src='https://placehold.co/600x340/e65622/white?text=NL'"></div>
+    <div class="rec-photo"><img src="https://i.postimg.cc/Njm8b1NJ/IMG-7153.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=NL'"></div>
+    <div class="rec-photo"><img src="https://i.postimg.cc/QMDQzHPn/IMG-7166.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=NL'"></div>
+    <div class="rec-photo"><img src="https://i.postimg.cc/y8chnFQK/IMG-7167.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=NL'"></div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-list-ol" style="font-size:.9rem;opacity:.8"></i>Cách làm</div>
+  <div class="steps-list">
+    <div class="step-card"><div class="step-num">1</div><div class="step-body"><strong>📦 Chuẩn bị dụng cụ</strong><p>Hũ thuỷ tinh tráng nước sôi, để khô hoàn toàn. Hũ phải thật khô — không một giọt nước lã để tránh hỏng mẻ tôm.</p></div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-body"><strong>🦐 Sơ chế tôm & ngâm rượu</strong><p>Tôm tươi rửa sạch, cắt bỏ râu chân. Ngâm rượu trắng 30–45 phút cho tôm chín tái, màu đỏ cam đẹp. Vớt ra để ráo trên khăn sạch.</p></div></div>
+    <div class="step-card"><div class="step-num">3</div><div class="step-body"><strong>🌶 Sơ chế gia vị</strong><p>Riềng gọt vỏ, thái chỉ mỏng. Tỏi lột vỏ, đập dập hoặc thái lát. Ớt sừng cắt khoanh. Xôi nếp nấu chín, để nguội.</p></div></div>
+    <div class="step-card"><div class="step-num">4</div><div class="step-body"><strong>🍯 Pha hỗn hợp muối ướp</strong><p>Nấu nước mắm ngon + đường tỉ lệ <strong>1:1</strong> đến khi tan, để nguội hẳn. Trộn với xôi nếp, riềng, tỏi, ớt thành hỗn hợp sền sệt.</p></div></div>
+    <div class="step-card"><div class="step-num">5</div><div class="step-body"><strong>🥣 Trộn & xếp hũ</strong><p>Trộn tôm đã ráo cùng hỗn hợp gia vị xôi, đảo nhẹ cho tôm ngấm đều. Xếp chặt vào hũ thuỷ tinh, đậy nắp kín.</p></div></div>
+    <div class="step-card"><div class="step-num">6</div><div class="step-body"><strong>⏳ Ủ lên men</strong><p>Để nơi thoáng mát, tránh ánh nắng trực tiếp.<br>🌞 <strong>Mùa hè:</strong> 5–7 ngày &nbsp;|&nbsp; ❄️ <strong>Mùa đông:</strong> 7–10 ngày<br>Tôm đỏ tươi, nước trong, mùi thơm chua nhẹ là đạt.</p></div></div>
+  </div>
+
+  <div class="tip-card">
+    <div class="tip-title">💡 Bí quyết thành công</div>
+    <ul>
+      <li>Hũ phải thật khô – không được có nước lã</li>
+      <li>Tôm tươi, chọn con vừa phải, không quá to</li>
+      <li>Xôi nếp nấu vừa chín tới, không nhão</li>
+      <li>Thêm ớt tươi + chút đường khi ăn giúp hương vị bùng nổ</li>
+      <li>Ăn kèm thịt ba chỉ luộc, rau sống, bánh tráng – chuẩn vị Huế</li>
+    </ul>
+  </div>
+
+  <div class="section-label"><i class="fas fa-bowl-food" style="font-size:.9rem;opacity:.8"></i>Thành phẩm</div>
+  <div class="final-card">
+    <img src="https://i.postimg.cc/L6Zj6tFr/IMG-7165.jpg" alt="Thành phẩm" onerror="this.src='https://placehold.co/960x280/d45c28/white?text=Th%C3%A0nh+ph%E1%BA%A9m'">
+    <div class="final-ov"><strong>Thành phẩm đỏ cam rực rỡ ✦</strong><p>Chuẩn vị Hải Hoà – Đặc sản Huế số 1</p></div>
+  </div>
+  <div class="rec-gallery mb-14">
+    <div class="rec-photo"><img src="https://i.postimg.cc/y8chnFQK/IMG-7167.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TP'"></div>
+    <div class="rec-photo"><img src="https://i.postimg.cc/t4WdDhSQ/IMG-7168.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TP'"></div>
+    <div class="rec-photo"><img src="https://i.postimg.cc/QMDQzHPn/IMG-7166.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TP'"></div>
+  </div>
+  <button class="btn-cta" onclick="showPage('shop')" style="margin-bottom:1rem;"><i class="fas fa-cart-shopping"></i>Muốn ăn thử? Đặt hàng ngay!</button>
+</div>
+
+<!-- ═══ LIÊN HỆ ═══ -->
+
+<div class="page-view" id="page-contact">
+  <div class="pt-12"></div>
+  <div class="contact-hero">
+    <img class="contact-avatar" src="https://i.postimg.cc/8cP81pYc/8052B4E0-99AF-4D0E-90AD-B3530B915C74.png" alt="Duy Hoàng"
+         onerror="this.src='https://placehold.co/90x90/c54512/white?text=DH'">
+    <div class="contact-name">Admin <span>Duy Hoàng</span></div>
+    <div class="contact-role">🦐 Hải Hoà · Tôm Chua 36 · Đặc sản Huế</div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-comment-dots" style="font-size:.9rem;opacity:.8"></i>Kênh liên hệ</div>
+  <div class="contact-cards">
+    <div class="ccard zalo" id="btnZalo">
+      <div class="cc-icon">💬</div>
+      <div><div class="ct-label">Chat Zalo ngay – Phản hồi trong 5 phút</div><div class="ct-val">Zalo · Duy Hoàng</div></div>
+      <i class="fas fa-chevron-right cc-arrow"></i>
+    </div>
+    <div class="ccard phone" onclick="window.location.href='tel:0385933633'">
+      <div class="cc-icon">📞</div>
+      <div><div class="ct-label">Gọi điện trực tiếp</div><div class="ct-val">0385 933 633</div></div>
+      <i class="fas fa-chevron-right cc-arrow"></i>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="fas fa-info-circle" style="font-size:.9rem;opacity:.8"></i>Thông tin shop</div>
+  <div class="info-box mb-14">
+    <div class="ib-title">Hải Hoà – Tôm Chua 36</div>
+    <div class="ib-row"><i class="fas fa-user"></i>Admin: Duy Hoàng</div>
+    <div class="ib-row"><i class="fas fa-phone"></i>SĐT: 0385 933 633</div>
+    <div class="ib-row"><i class="fas fa-comment"></i>Zalo: zalo.me/84385933633</div>
+    <div class="ib-row"><i class="fas fa-map-marker-alt"></i>Huế, Việt Nam</div>
+    <div class="ib-row"><i class="fas fa-clock"></i>Hỗ trợ: 7:00 – 22:00 mỗi ngày</div>
+    <div class="ib-row"><i class="fas fa-truck"></i>Giao hàng toàn quốc</div>
+  </div>
+  <button class="btn-cta" onclick="showPage('shop')" style="margin-bottom:1rem;"><i class="fas fa-cart-shopping"></i>Đặt hàng ngay</button>
+</div>
+
+</div><!-- /app -->
+
+<!-- BOTTOM TABS -->
+
+<div class="bottom-tabs">
+  <button class="btab active" data-page="home" onclick="showPage('home')"><i class="fas fa-house"></i>Trang chủ</button>
+  <button class="btab" data-page="shop" onclick="showPage('shop')"><i class="fas fa-cart-shopping"></i>Mua hàng</button>
+  <button class="btab" data-page="orders" onclick="showPage('orders')"><i class="fas fa-box"></i>Đơn hàng</button>
+  <button class="btab" data-page="recipe" onclick="showPage('recipe')"><i class="fas fa-utensils"></i>Cách làm</button>
+  <button class="btab" data-page="contact" onclick="showPage('contact')"><i class="fas fa-comment"></i>Liên hệ</button>
+</div>
+
+<!-- QR MODAL -->
+
+<div class="modal-overlay" id="qrModal">
+  <div class="modal-box">
+    <div class="modal-title">💳 Thanh toán đơn hàng</div>
+    <div class="modal-sub">Quét QR bên dưới để chuyển khoản</div>
+    <div class="qr-frame"><img id="qrImg" src="" alt="QR"></div>
+    <div class="qr-info">
+      <div class="qr-row"><span class="lbl">Ngân hàng</span><span class="val">MB Bank</span></div>
+      <div class="qr-row"><span class="lbl">Số TK</span><span class="val">015223</span></div>
+      <div class="qr-row"><span class="lbl">Chủ TK</span><span class="val">DO LE DUY HOANG</span></div>
+      <div class="qr-row"><span class="lbl">Số tiền</span><span class="val gold" id="qrAmount">—</span></div>
+      <div class="qr-row"><span class="lbl">Nội dung CK</span><span class="val" id="qrContent" style="font-size:.78rem">—</span></div>
+    </div>
+    <div class="modal-note">⚡ Sau khi chuyển khoản, nhấn <strong>"Đã thanh toán"</strong> để gửi đơn về shop. Shop xác nhận &amp; giao trong 1–2 ngày.</div>
+    <button class="btn-confirm" id="btnConfirmPay"><i class="fas fa-check-circle"></i>Đã thanh toán – Gửi đơn hàng</button>
+    <button class="btn-modal-close" id="btnCloseModal">Quay lại chỉnh sửa</button>
+  </div>
+</div>
+
+<!-- ZALO MODAL -->
+
+<div class="zalo-modal" id="zaloModal">
+  <div class="zalo-box">
+    <div class="zalo-logo">💬</div>
+    <div class="zalo-title">Chat Zalo ngay!</div>
+    <div class="zalo-admin">Admin: <strong>Duy Hoàng</strong> · Hải Hoà Tôm Chua 36<br>Hỗ trợ nhanh · Phản hồi trong 5 phút</div>
+    <a class="zalo-link" href="https://zalo.me/84385933633" target="_blank" rel="noopener"><i class="fas fa-comment-dots"></i>&nbsp;Mở Zalo – Nhắn ngay</a>
+    <button class="zalo-close" id="btnCloseZalo">Để sau</button>
+  </div>
+</div>
+
+<!-- CANCEL MODAL -->
+
+<div class="cancel-modal" id="cancelModal">
+  <div class="cancel-box">
+    <div class="cancel-icon">⚠️</div>
+    <div class="cancel-title">Huỷ đơn hàng?</div>
+    <div class="cancel-msg">Bạn có chắc muốn huỷ đơn hàng này không? Hành động này không thể hoàn tác.</div>
+    <div class="cancel-btns">
+      <button class="btn-do-cancel" id="btnDoCancel">Huỷ đơn</button>
+      <button class="btn-keep" id="btnKeepOrder">Giữ lại</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"><span id="toastIcon"></span><span id="toastMsg"></span></div>
+
+<script>
+/* CONFIG */
+const PRICE=100000,BOT_TOKEN='8628043569:AAFid9mZ8CqKyD-NpecmqkYs1SPJSpWezsw',CHAT_ID='6286372153';
+const BANK='MB',ACCOUNT='015223',ACCT_NAME='DO LE DUY HOANG',STORAGE_KEY='tomchua36_orders';
+
+/* STATE */
+let qty=1,geoLat=null,geoLng=null,geoMapLink='',pendingCancelId=null;
+
+/* FORMAT */
+function fmtVND(n){return n.toLocaleString('vi-VN')+'đ';}
+function fmtDate(ts){const d=new Date(ts);return`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} · ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;}
+
+/* PAGE NAV */
+function showPage(id){
+  document.querySelectorAll('.page-view').forEach(p=>p.classList.remove('active'));
+  document.querySelector('#page-'+id).classList.add('active');
+  document.querySelectorAll('.btab').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  document.querySelectorAll('.sidebar-item').forEach(s=>s.classList.toggle('active',s.dataset.page===id));
+  closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='orders')renderOrders();
+}
+
+/* SIDEBAR */
+function openSidebar(){document.getElementById('sidebar').classList.add('open');document.getElementById('sidebarOverlay').classList.add('open');document.getElementById('hamBtn').classList.add('open');document.body.style.overflow='hidden';}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('open');document.getElementById('hamBtn').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('hamBtn').addEventListener('click',()=>document.getElementById('sidebar').classList.contains('open')?closeSidebar():openSidebar());
+document.getElementById('sidebarClose').addEventListener('click',closeSidebar);
+document.getElementById('sidebarOverlay').addEventListener('click',closeSidebar);
+
+/* QTY */
+function updateTotals(){const t=qty*PRICE;document.getElementById('totalDisplay').textContent=fmtVND(t);document.getElementById('formQtyDisplay').textContent=qty;document.getElementById('formTotalDisplay').textContent=fmtVND(t);}
+document.getElementById('qtyMinus').addEventListener('click',()=>{if(qty>1){qty--;document.getElementById('qtyInput').value=qty;updateTotals();}});
+document.getElementById('qtyPlus').addEventListener('click',()=>{if(qty<99){qty++;document.getElementById('qtyInput').value=qty;updateTotals();}});
+document.getElementById('btnScrollOrder').addEventListener('click',()=>{document.getElementById('orderFormSection').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>document.getElementById('fieldName').focus(),400);});
+
+/* GEO */
+document.getElementById('btnGeo').addEventListener('click',()=>{
+  if(!navigator.geolocation){showToast('Trình duyệt không hỗ trợ GPS','error');return;}
+  const btn=document.getElementById('btnGeo');
+  btn.innerHTML='<span class="spinner"></span>';btn.disabled=true;
+  document.getElementById('geoNote').textContent='Đang lấy vị trí...';
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    geoLat=pos.coords.latitude;geoLng=pos.coords.longitude;
+    geoMapLink=`https://maps.google.com/?q=${geoLat},${geoLng}`;
+    try{
+      const r=await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${geoLat}&lon=${geoLng}&format=json`,{headers:{'Accept-Language':'vi'}});
+      const d=await r.json();
+      document.getElementById('fieldAddr').value=d.display_name||`${geoLat.toFixed(5)},${geoLng.toFixed(5)}`;
+      document.getElementById('geoNote').innerHTML=`✅ Đã lấy vị trí · <a href="${geoMapLink}" target="_blank" style="color:#ffe566">Xem Maps</a>`;
+      showToast('Đã lấy vị trí!','success');
+    }catch{document.getElementById('fieldAddr').value=`${geoLat.toFixed(5)},${geoLng.toFixed(5)}`;document.getElementById('geoNote').textContent='📍 Đã lấy tọa độ GPS';}
+    btn.innerHTML='<i class="fas fa-location-crosshairs"></i>';btn.disabled=false;
+  },err=>{btn.innerHTML='<i class="fas fa-location-crosshairs"></i>';btn.disabled=false;document.getElementById('geoNote').textContent='Không thể lấy vị trí, nhập tay.';showToast('Không thể lấy GPS','error');},{timeout:10000});
+});
+
+/* VALIDATION */
+function isValidPhone(p){return /^(0|\+84)[3-9][0-9]{8}$/.test(p.replace(/\s/g,''));}
+function validateForm(){
+  let ok=true;
+  ['fieldName','fieldPhone','fieldAddr'].forEach(id=>document.getElementById(id).classList.remove('error'));
+  if(!document.getElementById('fieldName').value.trim()){document.getElementById('fieldName').classList.add('error');ok=false;}
+  if(!isValidPhone(document.getElementById('fieldPhone').value)){document.getElementById('fieldPhone').classList.add('error');ok=false;}
+  if(!document.getElementById('fieldAddr').value.trim()){document.getElementById('fieldAddr').classList.add('error');ok=false;}
+  if(!ok)showToast('Vui lòng điền đầy đủ và đúng thông tin!','error');
+  return ok;
+}
+
+/* QR MODAL */
+document.getElementById('btnSubmit').addEventListener('click',()=>{
+  if(!validateForm())return;
+  const total=qty*PRICE,phone=document.getElementById('fieldPhone').value.replace(/\s/g,'');
+  const addInfo=`TomChua36 ${phone}`;
+  document.getElementById('qrImg').src=`https://img.vietqr.io/image/${BANK}-${ACCOUNT}-compact2.png?amount=${total}&addInfo=${encodeURIComponent(addInfo)}&accountName=${encodeURIComponent(ACCT_NAME)}`;
+  document.getElementById('qrAmount').textContent=fmtVND(total);
+  document.getElementById('qrContent').textContent=addInfo;
+  document.getElementById('qrModal').classList.add('show');
+  document.body.style.overflow='hidden';
+});
+document.getElementById('btnCloseModal').addEventListener('click',()=>{document.getElementById('qrModal').classList.remove('show');document.body.style.overflow='';});
+document.getElementById('qrModal').addEventListener('click',e=>{if(e.target===document.getElementById('qrModal')){document.getElementById('qrModal').classList.remove('show');document.body.style.overflow='';}});
+
+/* SEND TELEGRAM */
+document.getElementById('btnConfirmPay').addEventListener('click',async()=>{
+  const btn=document.getElementById('btnConfirmPay');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Đang gửi đơn...';
+  const name=document.getElementById('fieldName').value.trim();
+  const phone=document.getElementById('fieldPhone').value.trim();
+  const addr=document.getElementById('fieldAddr').value.trim();
+  const note=document.getElementById('fieldNote').value.trim();
+  const total=qty*PRICE;
+  const orderId='TC36-'+Date.now().toString().slice(-6);
+  const mapPart=geoMapLink?`\n📌 GPS: ${geoMapLink}`:'';
+  const notePart=note?`\n📝 Ghi chú: ${note}`:'';
+  const msg=`🦐 ĐƠN HÀNG MỚI – Tôm Chua 36\n🆔 Mã đơn: ${orderId}\n━━━━━━━━━━━━━━━━━━━━\n👤 Khách hàng: ${name}\n📱 SĐT: ${phone}\n📍 Địa chỉ: ${addr}${mapPart}${notePart}\n━━━━━━━━━━━━━━━━━━━━\n🛒 Sản phẩm: Tôm Chua 36 (loại nhỏ ăn thử)\n📦 Số lượng: ${qty} hũ\n💰 Tổng tiền: ${fmtVND(total)}\n━━━━━━━━━━━━━━━━━━━━\n✅ Khách đã xác nhận thanh toán QR`;
+  try{
+    const res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHAT_ID,text:msg})});
+    const data=await res.json();
+    if(data.ok){
+      saveOrder({id:orderId,name,phone,addr,note,qty,total,geoMapLink,ts:Date.now(),status:'Đang xử lý'});
+      document.getElementById('qrModal').classList.remove('show');document.body.style.overflow='';
+      showToast('🎉 Đặt hàng thành công! Shop sẽ liên hệ sớm.','success',5000);
+      setTimeout(()=>{['fieldName','fieldPhone','fieldAddr','fieldNote'].forEach(id=>document.getElementById(id).value='');qty=1;document.getElementById('qtyInput').value=1;geoLat=geoLng=null;geoMapLink='';document.getElementById('geoNote').textContent='Nhấn 📍 để tự động điền vị trí GPS';updateTotals();},800);
+    }else throw new Error(data.description);
+  }catch(err){showToast('Gửi đơn thất bại. Vui lòng nhắn Zalo!','error',5000);console.error(err);}
+  finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-check-circle"></i> Đã thanh toán – Gửi đơn hàng';}
+});
+
+/* ORDERS STORAGE */
+function getOrders(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch{return[];}}
+function saveOrder(o){const orders=getOrders();orders.unshift(o);localStorage.setItem(STORAGE_KEY,JSON.stringify(orders));}
+function cancelOrder(id){const orders=getOrders();const idx=orders.findIndex(o=>o.id===id);if(idx>=0){orders[idx].status='Đã huỷ';localStorage.setItem(STORAGE_KEY,JSON.stringify(orders));}}
+
+/* RENDER ORDERS */
+function renderOrders(){
+  const orders=getOrders(),wrap=document.getElementById('ordersList');
+  if(!orders.length){wrap.innerHTML=`<div class="orders-empty"><div class="oe-icon">📭</div><p>Bạn chưa có đơn hàng nào.<br>Hãy <span style="color:var(--gold);cursor:pointer;" onclick="showPage('shop')">đặt hàng ngay</span> để thưởng thức Tôm Chua 36!</p></div>`;return;}
+  wrap.innerHTML=orders.map(o=>`
+    <div class="order-item" id="oi-${o.id}">
+      <div class="order-header">
+        <div><div class="order-name">${o.name}</div><div class="order-id">Mã đơn: ${o.id} · ${fmtDate(o.ts)}</div></div>
+        <div class="order-status ${o.status==='Đã huỷ'?'cancelled':''}">${o.status}</div>
+      </div>
+      <div class="order-row"><span class="lbl">Sản phẩm</span><span class="val">Tôm Chua 36 (loại nhỏ)</span></div>
+      <div class="order-row"><span class="lbl">Số lượng</span><span class="val">${o.qty} hũ</span></div>
+      <div class="order-row"><span class="lbl">Địa chỉ</span><span class="val" style="max-width:58%;text-align:right;font-size:.79rem;">${o.addr}</span></div>
+      <div class="order-row"><span class="lbl">Tổng tiền</span><span class="val gold">${fmtVND(o.total)}</span></div>
+      ${o.geoMapLink?`<div class="order-row"><span class="lbl">Vị trí</span><a href="${o.geoMapLink}" target="_blank" style="color:#ffe566;font-size:.8rem;">📍 Xem Google Maps</a></div>`:''}
+      ${o.note?`<div class="order-row"><span class="lbl">Ghi chú</span><span class="val" style="font-size:.79rem;max-width:58%;text-align:right;">${o.note}</span></div>`:''}
+      <div class="order-actions">
+        ${o.status!=='Đã huỷ'?`<button class="btn-cancel-order" onclick="askCancel('${o.id}')"><i class="fas fa-times-circle"></i> Huỷ đơn</button>`:'<span style="font-size:.76rem;color:rgba(255,255,255,.4);">Đơn đã huỷ</span>'}
+        <button class="btn-reorder" onclick="reorder('${o.id}')"><i class="fas fa-redo"></i> Đặt lại</button>
+      </div>
+    </div>`).join('');
+}
+
+/* CANCEL */
+function askCancel(id){pendingCancelId=id;document.getElementById('cancelModal').classList.add('open');document.body.style.overflow='hidden';}
+document.getElementById('btnDoCancel').addEventListener('click',()=>{if(pendingCancelId){cancelOrder(pendingCancelId);pendingCancelId=null;document.getElementById('cancelModal').classList.remove('open');document.body.style.overflow='';renderOrders();showToast('Đã huỷ đơn hàng','info');}});
+document.getElementById('btnKeepOrder').addEventListener('click',()=>{pendingCancelId=null;document.getElementById('cancelModal').classList.remove('open');document.body.style.overflow='';});
+
+/* REORDER */
+function reorder(id){
+  const o=getOrders().find(x=>x.id===id);if(!o)return;
+  showPage('shop');
+  setTimeout(()=>{document.getElementById('fieldName').value=o.name;document.getElementById('fieldPhone').value=o.phone;document.getElementById('fieldAddr').value=o.addr;document.getElementById('fieldNote').value=o.note||'';qty=o.qty;document.getElementById('qtyInput').value=qty;updateTotals();document.getElementById('orderFormSection').scrollIntoView({behavior:'smooth',block:'start'});showToast('Đã điền lại thông tin đơn cũ!','info');},400);
+}
+
+/* ZALO */
+document.getElementById('btnZalo').addEventListener('click',()=>{document.getElementById('zaloModal').classList.add('open');document.body.style.overflow='hidden';});
+document.getElementById('btnCloseZalo').addEventListener('click',()=>{document.getElementById('zaloModal').classList.remove('open');document.body.style.overflow='';});
+document.getElementById('zaloModal').addEventListener('click',e=>{if(e.target===document.getElementById('zaloModal')){document.getElementById('zaloModal').classList.remove('open');document.body.style.overflow='';}});
+
+/* TOAST */
+let toastTimer;
+function showToast(msg,type='info',duration=3500){const el=document.getElementById('toast');const icons={success:'✅',error:'❌',info:'💡'};el.className=`toast ${type}`;document.getElementById('toastIcon').textContent=icons[type]||'💡';document.getElementById('toastMsg').textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),duration);}
+
+/* INIT */
+updateTotals();renderOrders();
+</script>
+
+</body>
+</html>
