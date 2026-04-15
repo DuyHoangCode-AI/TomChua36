@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Tôm Chua</title>
+<title>Tôm Chua - Nhóm II</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-:root{--red:#c84b1a;--orange:#e8631c;--amber:#f5a623;--gold:#ffd18a;--dark:#2c1206;--glass:rgba(255,255,255,0.18);--glass2:rgba(255,255,255,0.24);--border:rgba(255,255,255,0.32);--nav-h:62px;--success:#10b981;}
+:root{--red:#c84b1a;--orange:#e8631c;--amber:#f5a623;--gold:#ffd18a;--dark:#2c1206;--glass:rgba(255,255,255,0.18);--glass2:rgba(255,255,255,0.24);--border:rgba(255,255,255,0.32);--nav-h:62px;}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 20%,#ff6b2b 0%,transparent 50%),radial-gradient(ellipse at 85% 80%,#c0390a 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,#e84e0f 0%,transparent 80%),#991c00;min-height:100vh;color:#fff;overflow-x:hidden;}
@@ -183,7 +183,6 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 .order-name{font-weight:700;font-size:.9rem;color:#fff;}
 .order-status{font-size:.7rem;font-weight:700;padding:.2rem .7rem;border-radius:40px;background:rgba(255,200,80,.2);color:#ffe566;border:1px solid rgba(255,200,80,.3);white-space:nowrap;}
 .order-status.cancelled{background:rgba(255,100,80,.2);color:#ffb0a0;border-color:rgba(255,100,80,.3);}
-.order-status.paid{background:rgba(16,185,129,.2);color:#6ee7b7;border-color:rgba(16,185,129,.3);}
 .order-row{display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:.3rem;}
 .order-row .lbl{color:rgba(255,255,255,.6);}
 .order-row .val{color:#fff;font-weight:500;}
@@ -289,12 +288,6 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 .btn-modal-close{width:100%;padding:.7rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:rgba(255,255,255,.78);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;}
 .btn-modal-close:hover{background:rgba(255,255,255,.18);}
 
-/* Polling status */
-.polling-status{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:.8rem 0;padding:.5rem;background:rgba(255,255,255,.08);border-radius:40px;font-size:.8rem;}
-.spinner-sm{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;}
-.success-badge{background:var(--success);color:#fff;padding:.3rem 1rem;border-radius:40px;font-weight:600;font-size:.8rem;}
-.countdown-timer{color:var(--gold);font-weight:700;margin-left:.3rem;}
-
 /* CANCEL MODAL */
 .cancel-modal{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s;}
 .cancel-modal.open{opacity:1;pointer-events:all;}
@@ -326,8 +319,8 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 <!-- TOP NAV -->
 <nav class="topnav">
   <div class="nav-logo" onclick="showPage('home')">
-    <img src="https://i.postimg.cc/8cP81pYc/8052B4E0-99AF-4D0E-90AD-B3530B915C74.png" alt="Logo" onerror="this.src='https://placehold.co/100x100/c54512/white?text=HH'">
-    <div class="nav-logo-text"><span>Tôm Chua</span></div>
+    <img src="https://i.postimg.cc/RCWLQLpx/9C59DC78-AA19-4C92-A61D-64BEFACE2293.png" alt="Logo" onerror="this.src='https://placehold.co/100x100/c54512/white?text=HH'">
+    <div class="nav-logo-text"><span>Tôm Chua - Nhóm II</span></div>
   </div>
   <div class="nav-desktop-links">
     <a data-page="home" onclick="showPage('home')" class="active">🏠 Trang Chủ</a>
@@ -343,7 +336,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-head">
-    <div class="sidebar-logo"><span>Tôm Chua</span></div>
+    <div class="sidebar-logo"><span>Tôm Chua - Nhóm II</span></div>
     <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
   </div>
   <nav class="sidebar-nav">
@@ -353,7 +346,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
     <div class="sidebar-item" data-page="recipe" onclick="showPage('recipe')"><div class="si-icon">👨‍🍳</div>Hướng Dẫn Làm</div>
     <div class="sidebar-item" data-page="contact" onclick="showPage('contact')"><div class="si-icon">💬</div>Liên Hệ</div>
   </nav>
-  <div class="sidebar-footer">© 2026 · Tôm Chua<br>Lên men truyền thống</div>
+  <div class="sidebar-footer">© 2026 · Tôm Chua - Nhóm II<br>Lên men truyền thống</div>
 </aside>
 
 <!-- APP -->
@@ -368,15 +361,15 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
       <div class="sub">
         <span class="badge">🦐 Lên men truyền thống</span>
         <span class="badge">🌶 Riềng · Tỏi · Ớt sừng</span>
-        <span class="badge">✅ Hải Hoà chính gốc</span>
+        <span class="badge">✅ Nhóm II chính gốc</span>
       </div>
     </div>
   </div>
 
   <div class="section-label"><i class="fas fa-star" style="font-size:.9rem;opacity:.8"></i>Hương vị đặc trưng</div>
   <div class="flavor-intro">
-    <div class="fi-title">🦐 Tôm Chua – Vị ngon khó quên</div>
-    <p><strong style="color:var(--gold);">Tôm Chua</strong> mang trong mình bốn tầng hương vị hoà quyện tinh tế: vị <em>chua thanh dịu</em> từ quá trình lên men tự nhiên, vị <em>cay nồng ấm</em> của ớt sừng và riềng, vị <em>mặn ngọt đậm đà</em> của nước mắm ngon cùng đường, và vị <em>thơm đặc trưng</em> của tỏi thấm sâu vào từng con tôm.</p>
+    <div class="fi-title">🦐 Tôm Chua - Nhóm II – Vị ngon khó quên</div>
+    <p><strong style="color:var(--gold);">Tôm Chua - Nhóm II</strong> mang trong mình bốn tầng hương vị hoà quyện tinh tế: vị <em>chua thanh dịu</em> từ quá trình lên men tự nhiên, vị <em>cay nồng ấm</em> của ớt sừng và riềng, vị <em>mặn ngọt đậm đà</em> của nước mắm ngon cùng đường, và vị <em>thơm đặc trưng</em> của tỏi thấm sâu vào từng con tôm.</p>
     <p>Thưởng thức cùng <strong style="color:var(--gold);">thịt ba chỉ luộc thái mỏng, rau sống tươi xanh và bánh tráng</strong> — mỗi miếng là sự kết hợp hoàn hảo giữa béo ngậy, giòn mát, chua cay mặn ngọt.</p>
     <div class="flavor-tags">
       <span class="ftag">🍋 Chua thanh dịu</span><span class="ftag">🌶 Cay nồng ấm</span><span class="ftag">🧂 Mặn ngọt đậm đà</span>
@@ -392,7 +385,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
     <div class="quick-card" onclick="showPage('contact')"><div class="qc-icon">💬</div><div class="qc-title">Liên Hệ</div><div class="qc-sub">Zalo · Hỗ trợ 24/7</div></div>
   </div>
 
-  <div class="section-label"><i class="fas fa-star" style="font-size:.9rem;opacity:.8"></i>Tại sao chọn Tôm Chua</div>
+  <div class="section-label"><i class="fas fa-star" style="font-size:.9rem;opacity:.8"></i>Tại sao chọn Tôm Chua - Nhóm II</div>
   <div class="feature-strip">
     <div class="feat"><div class="fi">🦐</div><div class="ft">Tôm tươi chọn lọc kỹ</div></div>
     <div class="feat"><div class="fi">🌶</div><div class="ft">Gia vị chuẩn truyền thống</div></div>
@@ -409,7 +402,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
     <div class="hg-card"><img src="https://i.postimg.cc/L6Zj6tFr/IMG-7165.jpg" alt="tc3"></div>
     <div class="hg-card"><img src="https://i.postimg.cc/QMDQzHPn/IMG-7166.jpg" alt="tc4"></div>
   </div>
-  <button class="btn-cta" onclick="showPage('shop')"><i class="fas fa-cart-shopping"></i>Đặt hàng ngay – 10.000đ/hũ</button>
+  <button class="btn-cta" onclick="showPage('shop')"><i class="fas fa-cart-shopping"></i>Đặt hàng ngay – 100.000đ/hũ</button>
 </div>
 
 <!-- ═══ MUA HÀNG ═══ -->
@@ -422,11 +415,11 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
       <span class="badge-hot">🔥 Bán chạy</span>
     </div>
     <div class="prod-info">
-      <div class="prod-brand">Hải Hoà · Tôm Chua</div>
+      <div class="prod-brand">Nhóm II · Tôm Chua</div>
       <div class="prod-name">Tôm Chua <em>Loại Nhỏ</em></div>
       <div class="prod-desc">Sắc đỏ cam rực rỡ, vị <strong>chua thanh – cay nồng – mặn ngọt đậm đà</strong>. Ăn kèm thịt ba chỉ luộc, rau sống, bánh tráng — chuẩn hương vị truyền thống chính gốc.</div>
       <div class="prod-tags"><span class="ptag">🧃 Chua thanh</span><span class="ptag">🌶 Cay nồng</span><span class="ptag">🫙 Hũ thuỷ tinh</span></div>
-      <div class="price-row"><div class="price">10.000đ</div><div class="price-note">/ hũ ăn thử<br><span style="color:#ff9a6c;font-size:.73rem;">✦ Free ship nội thành</span></div></div>
+      <div class="price-row"><div class="price">100.000đ</div><div class="price-note">/ hũ ăn thử<br><span style="color:#ff9a6c;font-size:.73rem;">✦ Free ship nội thành</span></div></div>
       <div class="qty-row">
         <span class="qty-lbl">Số lượng:</span>
         <div class="qty-ctrl">
@@ -435,7 +428,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
           <button class="qty-btn" id="qtyPlus">+</button>
         </div>
       </div>
-      <div class="total-prev">Tổng: <strong id="totalDisplay">10.000đ</strong></div>
+      <div class="total-prev">Tổng: <strong id="totalDisplay">100.000đ</strong></div>
       <button class="btn-cta" id="btnScrollOrder"><i class="fas fa-cart-shopping"></i>Đặt hàng ngay</button>
     </div>
   </div>
@@ -443,8 +436,8 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
   <div class="section-label"><i class="fas fa-clipboard-list" style="font-size:.9rem;opacity:.8"></i>Thông tin đặt hàng</div>
   <div class="order-form-wrap" id="orderFormSection">
     <div class="order-summary">
-      <div><div class="sum-item">🦐 Tôm Chua (loại nhỏ ăn thử)</div><div class="sum-item" style="margin-top:.2rem;">Số lượng: <strong id="formQtyDisplay">1</strong> hũ</div></div>
-      <div><div class="sum-item" style="font-size:.76rem;text-align:right;opacity:.7;margin-bottom:.15rem;">Tổng tiền</div><div class="sum-total" id="formTotalDisplay">10.000đ</div></div>
+      <div><div class="sum-item">🦐 Tôm Chua - Nhóm II (loại nhỏ ăn thử)</div><div class="sum-item" style="margin-top:.2rem;">Số lượng: <strong id="formQtyDisplay">1</strong> hũ</div></div>
+      <div><div class="sum-item" style="font-size:.76rem;text-align:right;opacity:.7;margin-bottom:.15rem;">Tổng tiền</div><div class="sum-total" id="formTotalDisplay">100.000đ</div></div>
     </div>
     <div class="form-grid">
       <div class="form-group"><label>👤 Họ và tên <span class="req">*</span></label><input type="text" id="fieldName" placeholder="Nguyễn Văn A"></div>
@@ -472,7 +465,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
   <div class="pt-12"></div>
   <div class="recipe-hero">
     <img src="https://i.postimg.cc/L6Zj6tFr/IMG-7165.jpg" alt="Tôm chua">
-    <div class="recipe-hero-ov"><div class="rtitle">Hướng Dẫn Làm Tôm Chua</div><div class="rsub">Công thức chuẩn truyền thống · Hải Hoà chia sẻ</div></div>
+    <div class="recipe-hero-ov"><div class="rtitle">Hướng Dẫn Làm Tôm Chua</div><div class="rsub">Công thức chuẩn truyền thống · Nhóm II chia sẻ</div></div>
   </div>
   <div class="section-label"><i class="fas fa-basket-shopping" style="font-size:.9rem;opacity:.8"></i>Chuẩn bị nguyên liệu</div>
   <div class="glass-card" style="padding:1.3rem 1.4rem;margin-bottom:1rem;">
@@ -522,7 +515,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
   <div class="section-label"><i class="fas fa-bowl-food" style="font-size:.9rem;opacity:.8"></i>Thành phẩm</div>
   <div class="final-card">
     <img src="https://i.postimg.cc/L6Zj6tFr/IMG-7165.jpg" alt="Thành phẩm" onerror="this.src='https://placehold.co/1800x960/d45c28/white?text=Th%C3%A0nh+ph%E1%BA%A9m'">
-    <div class="final-ov"><strong>Thành phẩm đỏ cam rực rỡ ✦</strong><p>Chuẩn vị Hải Hoà – Tôm Chua</p></div>
+    <div class="final-ov"><strong>Thành phẩm đỏ cam rực rỡ ✦</strong><p>Chuẩn vị Nhóm II – Tôm Chua</p></div>
   </div>
   <div class="rec-gallery mb-14">
     <div class="rec-photo"><img src="https://i.postimg.cc/y8chnFQK/IMG-7167.jpg" onerror="this.src='https://placehold.co/300x300/e65622/white?text=TP'"></div>
@@ -539,7 +532,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
     <img class="contact-avatar" src="https://i.postimg.cc/8cP81pYc/8052B4E0-99AF-4D0E-90AD-B3530B915C74.png" alt="Duy Hoàng"
          onerror="this.src='https://placehold.co/90x90/c54512/white?text=DH'">
     <div class="contact-name">Admin <span>Duy Hoàng</span></div>
-    <div class="contact-role">🦐 Hải Hoà · Tôm Chua</div>
+    <div class="contact-role">🦐 Nhóm II · Tôm Chua</div>
   </div>
 
   <div class="section-label"><i class="fas fa-comment-dots" style="font-size:.9rem;opacity:.8"></i>Kênh liên hệ</div>
@@ -558,7 +551,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 
   <div class="section-label"><i class="fas fa-info-circle" style="font-size:.9rem;opacity:.8"></i>Thông tin shop</div>
   <div class="info-box mb-14">
-    <div class="ib-title">Hải Hoà – Tôm Chua</div>
+    <div class="ib-title">Nhóm II – Tôm Chua</div>
     <div class="ib-row"><i class="fas fa-user"></i>Admin: Duy Hoàng</div>
     <div class="ib-row"><i class="fas fa-phone"></i>SĐT: 0964 493 987</div>
     <div class="ib-row"><i class="fas fa-comment"></i>Zalo: zalo.me/84385933633</div>
@@ -584,28 +577,17 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 <div class="modal-overlay" id="qrModal">
   <div class="modal-box">
     <div class="modal-title">💳 Thanh toán đơn hàng</div>
-    <div class="modal-sub" id="qrSubtitle">Quét QR bên dưới để chuyển khoản</div>
+    <div class="modal-sub">Quét QR bên dưới để chuyển khoản</div>
     <div class="qr-frame"><img id="qrImg" src="" alt="QR"></div>
     <div class="qr-info">
       <div class="qr-row"><span class="lbl">Ngân hàng</span><span class="val">MB Bank</span></div>
       <div class="qr-row"><span class="lbl">Số TK</span><span class="val">015223</span></div>
       <div class="qr-row"><span class="lbl">Chủ TK</span><span class="val">DO LE DUY HOANG</span></div>
       <div class="qr-row"><span class="lbl">Số tiền</span><span class="val gold" id="qrAmount">—</span></div>
-      <div class="qr-row"><span class="lbl">Mã đơn</span><span class="val" id="qrOrderId" style="font-size:.78rem;font-family:monospace;">—</span></div>
+      <div class="qr-row"><span class="lbl">Nội dung CK</span><span class="val" id="qrContent" style="font-size:.78rem">—</span></div>
     </div>
-    
-    <!-- Khu vực trạng thái polling -->
-    <div id="pollingStatusArea" class="polling-status">
-      <span class="spinner-sm" id="pollingSpinner"></span>
-      <span id="pollingText">Đang chờ thanh toán...</span>
-      <span id="countdownDisplay" class="countdown-timer"></span>
-    </div>
-    <div id="successStatusArea" style="display:none;" class="success-badge">
-      <i class="fas fa-check-circle"></i> Đã nhận thanh toán! Chờ đóng hàng...
-    </div>
-    
-    <div class="modal-note" id="modalNoteText">⚡ Quét mã QR để thanh toán. Đơn sẽ tự động huỷ sau <strong>5 phút</strong> nếu chưa thanh toán.</div>
-    <button class="btn-confirm" id="btnManualCheck"><i class="fas fa-sync-alt"></i>Kiểm tra lại ngay</button>
+    <div class="modal-note">⚡ Sau khi chuyển khoản, nhấn <strong>"Đã thanh toán"</strong> để gửi đơn về shop. Shop xác nhận &amp; giao trong 1–2 ngày.</div>
+    <button class="btn-confirm" id="btnConfirmPay"><i class="fas fa-check-circle"></i>Đã thanh toán – Gửi đơn hàng</button>
     <button class="btn-modal-close" id="btnCloseModal">Quay lại chỉnh sửa</button>
   </div>
 </div>
@@ -615,7 +597,7 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
   <div class="zalo-box">
     <div class="zalo-logo">💬</div>
     <div class="zalo-title">Chat Zalo ngay!</div>
-    <div class="zalo-admin">Admin: <strong>Duy Hoàng</strong> · Hải Hoà Tôm Chua</div>
+    <div class="zalo-admin">Admin: <strong>Duy Hoàng</strong> · Nhóm II Tôm Chua<br>Hỗ trợ nhanh · Phản hồi trong 5 phút</div>
     <a class="zalo-link" href="https://zalo.me/84385933633" target="_blank" rel="noopener"><i class="fas fa-comment-dots"></i>&nbsp;Mở Zalo – Nhắn ngay</a>
     <button class="zalo-close" id="btnCloseZalo">Để sau</button>
   </div>
@@ -639,25 +621,24 @@ button{font-family:'DM Sans',sans-serif;}a{color:inherit;text-decoration:none;}i
 
 <script>
 /* CONFIG */
-const PRICE=10000,BOT_TOKEN='8628043569:AAFid9mZ8CqKyD-NpecmqkYs1SPJSpWezsw',CHAT_ID='6286372153';
-const BANK='MB',ACCOUNT='015223',ACCT_NAME='DO LE DUY HOANG',STORAGE_KEY='tomchua_orders';
-const SEPAY_API_KEY = 'HM9DOTE6YTIQVOZHPBU7P2DKIAMMY4YRỶKDRSCTFFS93RN1HVZI5B82ƯCXLAL1Ơ4'; // 🔐 Thay bằng API Key thật
-const AUTO_CANCEL_TIME = 300; // 5 phút = 300 giây
+const PRICE=100000,BOT_TOKEN='8628043569:AAFid9mZ8CqKyD-NpecmqkYs1SPJSpWezsw',CHAT_ID='6286372153';
+const BANK='MB',ACCOUNT='015223',ACCT_NAME='DO LE DUY HOANG',STORAGE_KEY='tomchua_nhom2_orders';
 
 /* STATE */
-let qty=1,geoLat=null,geoLng=null,geoMapLink='',pendingCancelId=null;
-let currentOrderId = null, currentOrderData = null;
-let pollingInterval = null, countdownInterval = null, autoCancelTimeout = null;
-let isPaymentSuccess = false, secondsLeft = AUTO_CANCEL_TIME;
+let qty=1,geoLat=null,geoLng=null,geoMapLink='',pendingCancelId=null,pendingCancelOrder=null;
 
 /* FORMAT */
 function fmtVND(n){return n.toLocaleString('vi-VN')+'đ';}
-function fmtDate(ts){const d=new Date(ts);return `${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')} · ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;}
-function formatTime(sec){const m=Math.floor(sec/60);const s=sec%60;return `${m}:${s.toString().padStart(2,'0')}`;}
+function fmtDate(ts){const d=new Date(ts);return`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} · ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;}
 
 /* SEND TELEGRAM */
 async function sendTelegram(text){
-  try{await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHAT_ID,text})});}catch(e){}
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:CHAT_ID,text})
+    });
+  }catch(e){console.error('TG error',e);}
 }
 
 /* PAGE NAV */
@@ -667,9 +648,12 @@ function showPage(id){
   document.querySelectorAll('.btab').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
   document.querySelectorAll('.sidebar-item').forEach(s=>s.classList.toggle('active',s.dataset.page===id));
   document.querySelectorAll('.nav-desktop-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===id));
-  closeSidebar();window.scrollTo({top:0,behavior:'smooth'});
+  closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
   if(id==='orders')renderOrders();
 }
+
+/* SIDEBAR */
 function openSidebar(){document.getElementById('sidebar').classList.add('open');document.getElementById('sidebarOverlay').classList.add('open');document.getElementById('hamBtn').classList.add('open');document.body.style.overflow='hidden';}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('open');document.getElementById('hamBtn').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('hamBtn').addEventListener('click',()=>document.getElementById('sidebar').classList.contains('open')?closeSidebar():openSidebar());
@@ -685,14 +669,21 @@ document.getElementById('btnScrollOrder').addEventListener('click',()=>{document
 /* GEO */
 document.getElementById('btnGeo').addEventListener('click',()=>{
   if(!navigator.geolocation){showToast('Trình duyệt không hỗ trợ GPS','error');return;}
-  const btn=document.getElementById('btnGeo');btn.innerHTML='<span class="spinner"></span>';btn.disabled=true;
+  const btn=document.getElementById('btnGeo');
+  btn.innerHTML='<span class="spinner"></span>';btn.disabled=true;
+  document.getElementById('geoNote').textContent='Đang lấy vị trí...';
   navigator.geolocation.getCurrentPosition(async pos=>{
-    geoLat=pos.coords.latitude;geoLng=pos.coords.longitude;geoMapLink=`https://maps.google.com/?q=${geoLat},${geoLng}`;
-    try{const r=await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${geoLat}&lon=${geoLng}&format=json`,{headers:{'Accept-Language':'vi'}});const d=await r.json();document.getElementById('fieldAddr').value=d.display_name||`${geoLat.toFixed(5)},${geoLng.toFixed(5)}`;}
-    catch{document.getElementById('fieldAddr').value=`${geoLat.toFixed(5)},${geoLng.toFixed(5)}`;}
-    document.getElementById('geoNote').innerHTML=`✅ Đã lấy vị trí · <a href="${geoMapLink}" target="_blank" style="color:#ffe566">Xem Maps</a>`;
+    geoLat=pos.coords.latitude;geoLng=pos.coords.longitude;
+    geoMapLink=`https://maps.google.com/?q=${geoLat},${geoLng}`;
+    try{
+      const r=await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${geoLat}&lon=${geoLng}&format=json`,{headers:{'Accept-Language':'vi'}});
+      const d=await r.json();
+      document.getElementById('fieldAddr').value=d.display_name||`${geoLat.toFixed(5)},${geoLng.toFixed(5)}`;
+      document.getElementById('geoNote').innerHTML=`✅ Đã lấy vị trí · <a href="${geoMapLink}" target="_blank" style="color:#ffe566">Xem Maps</a>`;
+      showToast('Đã lấy vị trí!','success');
+    }catch{document.getElementById('fieldAddr').value=`${geoLat.toFixed(5)},${geoLng.toFixed(5)}`;document.getElementById('geoNote').textContent='📍 Đã lấy tọa độ GPS';}
     btn.innerHTML='<i class="fas fa-location-crosshairs"></i>';btn.disabled=false;
-  },err=>{btn.innerHTML='<i class="fas fa-location-crosshairs"></i>';btn.disabled=false;showToast('Không thể lấy GPS','error');});
+  },err=>{btn.innerHTML='<i class="fas fa-location-crosshairs"></i>';btn.disabled=false;document.getElementById('geoNote').textContent='Không thể lấy vị trí, nhập tay.';showToast('Không thể lấy GPS','error');},{timeout:10000});
 });
 
 /* VALIDATION */
@@ -707,263 +698,120 @@ function validateForm(){
   return ok;
 }
 
+/* QR MODAL */
+document.getElementById('btnSubmit').addEventListener('click',()=>{
+  if(!validateForm())return;
+  const total=qty*PRICE,phone=document.getElementById('fieldPhone').value.replace(/\s/g,'');
+  const addInfo=`TomChua ${phone}`;
+  document.getElementById('qrImg').src=`https://img.vietqr.io/image/${BANK}-${ACCOUNT}-compact2.png?amount=${total}&addInfo=${encodeURIComponent(addInfo)}&accountName=${encodeURIComponent(ACCT_NAME)}`;
+  document.getElementById('qrAmount').textContent=fmtVND(total);
+  document.getElementById('qrContent').textContent=addInfo;
+  document.getElementById('qrModal').classList.add('show');
+  document.body.style.overflow='hidden';
+});
+document.getElementById('btnCloseModal').addEventListener('click',()=>{document.getElementById('qrModal').classList.remove('show');document.body.style.overflow='';});
+document.getElementById('qrModal').addEventListener('click',e=>{if(e.target===document.getElementById('qrModal')){document.getElementById('qrModal').classList.remove('show');document.body.style.overflow='';}});
+
+/* SEND ORDER */
+document.getElementById('btnConfirmPay').addEventListener('click',async()=>{
+  const btn=document.getElementById('btnConfirmPay');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Đang gửi đơn...';
+  const name=document.getElementById('fieldName').value.trim();
+  const phone=document.getElementById('fieldPhone').value.trim();
+  const addr=document.getElementById('fieldAddr').value.trim();
+  const note=document.getElementById('fieldNote').value.trim();
+  const total=qty*PRICE;
+  const orderId='TC'+Date.now().toString().slice(-6);
+  const mapPart=geoMapLink?`\n📌 GPS: ${geoMapLink}`:'';
+  const notePart=note?`\n📝 Ghi chú: ${note}`:'';
+  const msg=`🦐 ĐƠN HÀNG MỚI – Tôm Chua - Nhóm II\n🆔 Mã đơn: ${orderId}\n━━━━━━━━━━━━━━━━━━━━\n👤 Khách hàng: ${name}\n📱 SĐT: ${phone}\n📍 Địa chỉ: ${addr}${mapPart}${notePart}\n━━━━━━━━━━━━━━━━━━━━\n🛒 Sản phẩm: Tôm Chua - Nhóm II (loại nhỏ)\n📦 Số lượng: ${qty} hũ\n💰 Tổng tiền: ${fmtVND(total)}\n━━━━━━━━━━━━━━━━━━━━\n✅ Khách đã xác nhận thanh toán QR`;
+  try{
+    const res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHAT_ID,text:msg})});
+    const data=await res.json();
+    if(data.ok){
+      saveOrder({id:orderId,name,phone,addr,note,qty,total,geoMapLink,ts:Date.now(),status:'Đang xử lý'});
+      document.getElementById('qrModal').classList.remove('show');document.body.style.overflow='';
+      showToast('🎉 Đặt hàng thành công! Shop sẽ liên hệ sớm.','success',5000);
+      setTimeout(()=>{['fieldName','fieldPhone','fieldAddr','fieldNote'].forEach(id=>document.getElementById(id).value='');qty=1;document.getElementById('qtyInput').value=1;geoLat=geoLng=null;geoMapLink='';document.getElementById('geoNote').textContent='Nhấn 📍 để tự động điền vị trí GPS';updateTotals();},800);
+    }else throw new Error(data.description);
+  }catch(err){showToast('Gửi đơn thất bại. Vui lòng nhắn Zalo!','error',5000);console.error(err);}
+  finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-check-circle"></i> Đã thanh toán – Gửi đơn hàng';}
+});
+
 /* ORDERS STORAGE */
 function getOrders(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch{return[];}}
 function saveOrder(o){const orders=getOrders();orders.unshift(o);localStorage.setItem(STORAGE_KEY,JSON.stringify(orders));}
-function updateOrderStatus(id,status,paid=false){
-  const orders=getOrders();const idx=orders.findIndex(o=>o.id===id);
-  if(idx>=0){orders[idx].status=status;if(paid)orders[idx].paid=true;localStorage.setItem(STORAGE_KEY,JSON.stringify(orders));}
+function updateOrderStatus(id,status){
+  const orders=getOrders();
+  const idx=orders.findIndex(o=>o.id===id);
+  if(idx>=0){orders[idx].status=status;localStorage.setItem(STORAGE_KEY,JSON.stringify(orders));}
 }
 
 /* RENDER ORDERS */
 function renderOrders(){
   const orders=getOrders(),wrap=document.getElementById('ordersList');
-  if(!orders.length){wrap.innerHTML=`<div class="orders-empty"><div class="oe-icon">📭</div><p>Bạn chưa có đơn hàng nào.</p></div>`;return;}
+  if(!orders.length){wrap.innerHTML=`<div class="orders-empty"><div class="oe-icon">📭</div><p>Bạn chưa có đơn hàng nào.<br>Hãy <span style="color:var(--gold);cursor:pointer;" onclick="showPage('shop')">đặt hàng ngay</span> để thưởng thức Tôm Chua - Nhóm II!</p></div>`;return;}
   wrap.innerHTML=orders.map(o=>`
-    <div class="order-item">
-      <div class="order-header"><div><div class="order-name">${o.name}</div><div class="order-id">Mã đơn: ${o.id} · ${fmtDate(o.ts)}</div></div>
-      <div class="order-status ${o.status==='Đã huỷ'?'cancelled':(o.paid?'paid':'')}">${o.status}${o.paid?' ✅':''}</div></div>
+    <div class="order-item" id="oi-${o.id}">
+      <div class="order-header">
+        <div><div class="order-name">${o.name}</div><div class="order-id">Mã đơn: ${o.id} · ${fmtDate(o.ts)}</div></div>
+        <div class="order-status ${o.status==='Đã huỷ'?'cancelled':''}">${o.status}</div>
+      </div>
+      <div class="order-row"><span class="lbl">Sản phẩm</span><span class="val">Tôm Chua - Nhóm II</span></div>
       <div class="order-row"><span class="lbl">Số lượng</span><span class="val">${o.qty} hũ</span></div>
+      <div class="order-row"><span class="lbl">Địa chỉ</span><span class="val" style="max-width:58%;text-align:right;font-size:.79rem;">${o.addr}</span></div>
       <div class="order-row"><span class="lbl">Tổng tiền</span><span class="val gold">${fmtVND(o.total)}</span></div>
+      ${o.geoMapLink?`<div class="order-row"><span class="lbl">Vị trí</span><a href="${o.geoMapLink}" target="_blank" style="color:#ffe566;font-size:.8rem;">📍 Xem Google Maps</a></div>`:''}
+      ${o.note?`<div class="order-row"><span class="lbl">Ghi chú</span><span class="val" style="font-size:.79rem;max-width:58%;text-align:right;">${o.note}</span></div>`:''}
       <div class="order-actions">
-        ${o.status!=='Đã huỷ'?`<button class="btn-cancel-order" onclick="askCancel('${o.id}')"><i class="fas fa-times-circle"></i> Huỷ đơn</button>`:'<span style="font-size:.76rem;">Đơn đã huỷ</span>'}
+        ${o.status!=='Đã huỷ'?`<button class="btn-cancel-order" onclick="askCancel('${o.id}')"><i class="fas fa-times-circle"></i> Huỷ đơn</button>`:'<span style="font-size:.76rem;color:rgba(255,255,255,.4);">Đơn đã huỷ</span>'}
         <button class="btn-reorder" onclick="reorder('${o.id}')"><i class="fas fa-redo"></i> Đặt lại</button>
       </div>
     </div>`).join('');
 }
 
-/* AUTO CANCEL FUNCTION */
-async function autoCancelOrder(orderId, orderData){
-  const orders=getOrders();
-  const order=orders.find(o=>o.id===orderId);
-  if(!order || order.paid || order.status==='Đã thanh toán'|| order.status==='Đã huỷ') return;
-  
-  updateOrderStatus(orderId,'Đã huỷ (quá hạn)',false);
-  
-  const msg=`⏰ ĐƠN HÀNG TỰ ĐỘNG HUỶ (QUÁ 5 PHÚT) – Tôm Chua\n🆔 Mã đơn: ${orderId}\n━━━━━━━━━━━━━━━━━━━━\n👤 Khách hàng: ${orderData.name}\n📱 SĐT: ${orderData.phone}\n📍 Địa chỉ: ${orderData.addr}\n━━━━━━━━━━━━━━━━━━━━\n📦 Số lượng: ${orderData.qty} hũ\n💰 Tổng tiền: ${fmtVND(orderData.total)}\n⏱ Đặt lúc: ${fmtDate(orderData.ts)}\n━━━━━━━━━━━━━━━━━━━━\n🚫 Đơn tự động huỷ do chưa thanh toán sau 5 phút`;
-  await sendTelegram(msg);
-  
-  if(currentOrderId===orderId){
-    stopPolling();
-    document.getElementById('qrModal').classList.remove('show');
-    showToast('⏰ Đơn hàng đã tự động huỷ do quá 5 phút chưa thanh toán','info',5000);
-  }
-  
-  renderOrders();
-}
-
-/* CANCEL (manual) */
+/* CANCEL */
 function askCancel(id){
   pendingCancelId=id;
+  pendingCancelOrder=getOrders().find(o=>o.id===id)||null;
   document.getElementById('cancelModal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 document.getElementById('btnDoCancel').addEventListener('click',async()=>{
   if(!pendingCancelId)return;
-  const order=getOrders().find(o=>o.id===pendingCancelId);
   updateOrderStatus(pendingCancelId,'Đã huỷ');
-  
-  if(order){
-    const msg=`❌ ĐƠN HÀNG BỊ HUỶ – Tôm Chua\n🆔 Mã đơn: ${order.id}\n👤 ${order.name}\n📱 ${order.phone}\n📍 ${order.addr}\n📦 SL: ${order.qty} hũ\n💰 ${fmtVND(order.total)}\n🚫 Khách đã huỷ đơn`;
-    await sendTelegram(msg);
+  if(pendingCancelOrder){
+    const o=pendingCancelOrder;
+    const cancelMsg=`❌ ĐƠN HÀNG BỊ HUỶ – Tôm Chua - Nhóm II\n🆔 Mã đơn: ${o.id}\n━━━━━━━━━━━━━━━━━━━━\n👤 Khách hàng: ${o.name}\n📱 SĐT: ${o.phone}\n📍 Địa chỉ: ${o.addr}\n━━━━━━━━━━━━━━━━━━━━\n📦 Số lượng: ${o.qty} hũ\n💰 Tổng tiền: ${fmtVND(o.total)}\n⏱ Đặt lúc: ${fmtDate(o.ts)}\n━━━━━━━━━━━━━━━━━━━━\n🚫 Khách đã huỷ đơn hàng này`;
+    await sendTelegram(cancelMsg);
   }
-  
-  if(currentOrderId===pendingCancelId){
-    stopPolling();
-    if(autoCancelTimeout){clearTimeout(autoCancelTimeout);autoCancelTimeout=null;}
-    document.getElementById('qrModal').classList.remove('show');
-  }
-  
-  pendingCancelId=null;
+  pendingCancelId=null;pendingCancelOrder=null;
   document.getElementById('cancelModal').classList.remove('open');
+  document.body.style.overflow='';
   renderOrders();
   showToast('Đã huỷ đơn hàng','info');
 });
-document.getElementById('btnKeepOrder').addEventListener('click',()=>{
-  pendingCancelId=null;
-  document.getElementById('cancelModal').classList.remove('open');
-});
+document.getElementById('btnKeepOrder').addEventListener('click',()=>{pendingCancelId=null;pendingCancelOrder=null;document.getElementById('cancelModal').classList.remove('open');document.body.style.overflow='';});
 
 /* REORDER */
 function reorder(id){
   const o=getOrders().find(x=>x.id===id);if(!o)return;
-  showPage('shop');setTimeout(()=>{document.getElementById('fieldName').value=o.name;document.getElementById('fieldPhone').value=o.phone;document.getElementById('fieldAddr').value=o.addr;qty=o.qty;document.getElementById('qtyInput').value=qty;updateTotals();},400);
+  showPage('shop');
+  setTimeout(()=>{document.getElementById('fieldName').value=o.name;document.getElementById('fieldPhone').value=o.phone;document.getElementById('fieldAddr').value=o.addr;document.getElementById('fieldNote').value=o.note||'';qty=o.qty;document.getElementById('qtyInput').value=qty;updateTotals();document.getElementById('orderFormSection').scrollIntoView({behavior:'smooth',block:'start'});showToast('Đã điền lại thông tin đơn cũ!','info');},400);
 }
 
 /* ZALO */
-document.getElementById('btnZalo').addEventListener('click',()=>{document.getElementById('zaloModal').classList.add('open');});
-document.getElementById('btnCloseZalo').addEventListener('click',()=>{document.getElementById('zaloModal').classList.remove('open');});
+document.getElementById('btnZalo').addEventListener('click',()=>{document.getElementById('zaloModal').classList.add('open');document.body.style.overflow='hidden';});
+document.getElementById('btnCloseZalo').addEventListener('click',()=>{document.getElementById('zaloModal').classList.remove('open');document.body.style.overflow='';});
+document.getElementById('zaloModal').addEventListener('click',e=>{if(e.target===document.getElementById('zaloModal')){document.getElementById('zaloModal').classList.remove('open');document.body.style.overflow='';}});
 
 /* TOAST */
 let toastTimer;
-function showToast(msg,type='info',duration=3500){
-  const el=document.getElementById('toast');
-  const icons={success:'✅',error:'❌',info:'💡'};
-  document.getElementById('toastIcon').textContent=icons[type]||'💡';
-  document.getElementById('toastMsg').textContent=msg;
-  el.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove('show'),duration);
-}
-
-/* POLLING & QR */
-function stopPolling(){
-  if(pollingInterval){clearInterval(pollingInterval);pollingInterval=null;}
-  if(countdownInterval){clearInterval(countdownInterval);countdownInterval=null;}
-  if(autoCancelTimeout){clearTimeout(autoCancelTimeout);autoCancelTimeout=null;}
-}
-
-function startCountdown(){
-  secondsLeft=AUTO_CANCEL_TIME;
-  const display=document.getElementById('countdownDisplay');
-  display.textContent=formatTime(secondsLeft);
-  
-  countdownInterval=setInterval(()=>{
-    if(isPaymentSuccess){
-      clearInterval(countdownInterval);
-      display.textContent='';
-      return;
-    }
-    secondsLeft--;
-    display.textContent=formatTime(secondsLeft);
-    if(secondsLeft<=0){
-      clearInterval(countdownInterval);
-    }
-  },1000);
-}
-
-function resetModalState(){
-  stopPolling();
-  isPaymentSuccess=false;
-  document.getElementById('pollingStatusArea').style.display='flex';
-  document.getElementById('successStatusArea').style.display='none';
-  document.getElementById('pollingText').textContent='Đang chờ thanh toán...';
-  document.getElementById('pollingSpinner').style.display='inline-block';
-  document.getElementById('countdownDisplay').textContent='';
-}
-
-async function checkTransaction(expectedAmount, orderId){
-  if(isPaymentSuccess) return true;
-  try{
-    const res=await fetch('https://userapi.sepay.vn/v2/transactions',{
-      headers:{'Authorization':`Bearer ${SEPAY_API_KEY}`}
-    });
-    if(!res.ok) return false;
-    const data=await res.json();
-    const txs=data.transactions||[];
-    const matched=txs.find(tx=>{
-      const amt=tx.amount_in||tx.amount;
-      if(Math.abs(amt-expectedAmount)>1) return false;
-      const desc=(tx.description||tx.transaction_content||'').toLowerCase();
-      return desc.includes(orderId.toLowerCase());
-    });
-    if(matched){
-      isPaymentSuccess=true;
-      document.getElementById('pollingStatusArea').style.display='none';
-      document.getElementById('successStatusArea').style.display='block';
-      stopPolling();
-      
-      updateOrderStatus(orderId,'Đã thanh toán',true);
-      
-      if(currentOrderData){
-        const msg=`✅ THANH TOÁN THÀNH CÔNG – Tôm Chua\n🆔 Mã đơn: ${orderId}\n👤 ${currentOrderData.name}\n📱 ${currentOrderData.phone}\n💰 ${fmtVND(expectedAmount)}\n⏱ Đã nhận tiền, chờ đóng hàng.`;
-        sendTelegram(msg);
-      }
-      
-      showToast('🎉 Đã nhận thanh toán! Shop sẽ đóng hàng và giao sớm.','success',5000);
-      return true;
-    }
-  }catch(e){console.warn('Poll error:',e);}
-  return false;
-}
-
-function startPolling(amount, orderId){
-  stopPolling();
-  resetModalState();
-  startCountdown();
-  
-  autoCancelTimeout=setTimeout(()=>{
-    if(!isPaymentSuccess && currentOrderData){
-      autoCancelOrder(orderId, currentOrderData);
-    }
-  }, AUTO_CANCEL_TIME*1000);
-  
-  checkTransaction(amount, orderId);
-  
-  pollingInterval=setInterval(()=>{
-    checkTransaction(amount, orderId);
-  },5000);
-}
-
-/* SUBMIT FORM -> QR */
-document.getElementById('btnSubmit').addEventListener('click',()=>{
-  if(!validateForm())return;
-  
-  const total=qty*PRICE;
-  const name=document.getElementById('fieldName').value.trim();
-  const phone=document.getElementById('fieldPhone').value.replace(/\s/g,'');
-  const addr=document.getElementById('fieldAddr').value.trim();
-  const note=document.getElementById('fieldNote').value.trim();
-  
-  const orderId='TC'+Date.now().toString().slice(-6);
-  currentOrderId=orderId;
-  currentOrderData={name,phone,addr,note,qty,total,geoMapLink,ts:Date.now()};
-  
-  const addInfo=orderId;
-  
-  document.getElementById('qrImg').src=`https://img.vietqr.io/image/${BANK}-${ACCOUNT}-compact2.png?amount=${total}&addInfo=${encodeURIComponent(addInfo)}&accountName=${encodeURIComponent(ACCT_NAME)}`;
-  document.getElementById('qrAmount').textContent=fmtVND(total);
-  document.getElementById('qrOrderId').textContent=orderId;
-  document.getElementById('qrSubtitle').textContent=`Quét QR & chuyển khoản với nội dung: ${orderId}`;
-  
-  resetModalState();
-  document.getElementById('qrModal').classList.add('show');
-  
-  startPolling(total, orderId);
-  
-  saveOrder({id:orderId,...currentOrderData,status:'Chờ thanh toán',paid:false});
-  
-  const mapPart=geoMapLink?`\n📌 GPS: ${geoMapLink}`:'';
-  const notePart=note?`\n📝 Ghi chú: ${note}`:'';
-  const msg=`🦐 ĐƠN HÀNG MỚI – Tôm Chua\n🆔 Mã đơn: ${orderId}\n👤 ${name}\n📱 ${phone}\n📍 ${addr}${mapPart}${notePart}\n📦 SL: ${qty} hũ\n💰 Tổng: ${fmtVND(total)}\n⏳ Chờ thanh toán (tự huỷ sau 5 phút)`;
-  sendTelegram(msg);
-});
-
-// Manual check
-document.getElementById('btnManualCheck').addEventListener('click',()=>{
-  if(currentOrderId && !isPaymentSuccess){
-    const total=qty*PRICE;
-    document.getElementById('pollingText').textContent='Đang kiểm tra...';
-    checkTransaction(total, currentOrderId).then(found=>{
-      if(!found && !isPaymentSuccess){
-        document.getElementById('pollingText').textContent='Chưa thấy giao dịch. Tiếp tục chờ...';
-        setTimeout(()=>{if(!isPaymentSuccess)document.getElementById('pollingText').textContent='Đang chờ thanh toán...';},1500);
-      }
-    });
-  }
-});
-
-// Close modal
-document.getElementById('btnCloseModal').addEventListener('click',()=>{
-  stopPolling();
-  document.getElementById('qrModal').classList.remove('show');
-  if(!isPaymentSuccess && currentOrderId){
-  } else if(isPaymentSuccess){
-    ['fieldName','fieldPhone','fieldAddr','fieldNote'].forEach(id=>document.getElementById(id).value='');
-    qty=1;document.getElementById('qtyInput').value=1;updateTotals();
-    geoLat=geoLng=null;geoMapLink='';
-  }
-  currentOrderId=null;currentOrderData=null;
-});
-
-document.getElementById('qrModal').addEventListener('click',e=>{
-  if(e.target===document.getElementById('qrModal')){
-    stopPolling();
-    document.getElementById('qrModal').classList.remove('show');
-  }
-});
+function showToast(msg,type='info',duration=3500){const el=document.getElementById('toast');const icons={success:'✅',error:'❌',info:'💡'};el.className=`toast ${type}`;document.getElementById('toastIcon').textContent=icons[type]||'💡';document.getElementById('toastMsg').textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),duration);}
 
 /* INIT */
 updateTotals();renderOrders();
 </script>
+
 </body>
 </html>
